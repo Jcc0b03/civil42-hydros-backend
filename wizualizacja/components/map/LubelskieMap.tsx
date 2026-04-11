@@ -9,6 +9,7 @@ import {
   Popup,
   TileLayer,
   Tooltip,
+  WMSTileLayer,
   useMap,
 } from "react-leaflet";
 
@@ -178,6 +179,17 @@ export default function LubelskieMap({
 
         {layerToggles.cameras && (
           <CameraLayer onSelectCamera={onSelectCamera} />
+        )}
+
+        {layerToggles.floodZones && (
+          <WMSTileLayer
+            url="https://wody.isok.gov.pl/wss/INSPIRE/INSPIRE_NZ_HY_MZPMRP_WMS"
+            layers="MZP_RZEKI_P100"
+            format="image/png"
+            transparent
+            opacity={0.45}
+            attribution="Dane: Wody Polskie (ISOK)"
+          />
         )}
       </MapContainer>
     </div>

@@ -47,3 +47,51 @@ export type RiverStatus = {
   level: string;
   status: "critical" | "warning" | "stable";
 };
+
+export type HydroStation = {
+  station: string;
+  river: string;
+  province: string;
+  level_cm: string | null;
+  level_date: string | null;
+  temperature: string | null;
+  warning_level: string | null;
+  alarm_level: string | null;
+  trend: string | null;
+  status: "critical" | "warning" | "stable";
+};
+
+export type FloodWarning = {
+  id: string | null;
+  region: string | null;
+  level: string | null;
+  phenomenon: string | null;
+  start: string | null;
+  end: string | null;
+  description: string | null;
+  probability: string | null;
+};
+
+export type HospitalFloodStatus = "evacuate" | "at_risk" | "redirect" | "operational";
+
+export type FloodHospital = {
+  name: string;
+  category: string;
+  lat: number;
+  lon: number;
+  flood_status: HospitalFloodStatus;
+  nearest_threat_station: string | null;
+  threat_distance_km: number | null;
+};
+
+export type FloodHospitalsResponse = {
+  timestamp: string;
+  summary: {
+    total: number;
+    evacuate: number;
+    at_risk: number;
+    redirect: number;
+  };
+  hydro_alerts: HydroStation[];
+  hospitals: FloodHospital[];
+};

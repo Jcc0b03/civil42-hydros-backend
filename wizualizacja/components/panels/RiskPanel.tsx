@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
 import { PanelShell } from "./PanelShell";
+import type { FloodWarning } from "@/lib/types";
+
+const API_BASE = "http://localhost:8000";
 
 const RISK_ITEMS = [
   {
@@ -34,9 +38,56 @@ const TONE_STYLE = {
 };
 
 export function RiskPanel({ onClose }: { onClose: () => void }) {
+  const [floodWarnings, setFloodWarnings] = useState<FloodWarning[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await fetch(`${API_BASE}/api/flood-warnings`);
+        const data = await r.json();
+        if (Array.isArray(data)) setFloodWarnings(data);
+      } catch {
+        /* API unavailable */
+      }
+    })();
+  }, []);
+
   return (
     <PanelShell title="Rejestr ryzyk" onClose={onClose}>
       <div className="flex flex-col gap-2">
+        {/* Live IMGW flood warnings */}
+        {floodWarnings.length > 0 && (
+          <>
+            <div className="flex items-center gap-2 px-1 font-headline text-[9px] font-bold uppercase tracking-widest text-critical">
+              <span className="material-symbols-outlined text-xs">flood</span>
+              Ostrzeżenia IMGW (live)
+            </div>
+            {floodWarnings.map((w, i) => (
+              <div
+                key={w.id ?? i}
+                className="rounded border border-critical/30 bg-critical/5 p-3 text-critical"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-headline text-xs font-semibold text-on-surface">
+                    {w.phenomenon || w.region || "Ostrzeżenie hydrologiczne"}
+                  </span>
+                  <span className="font-headline text-[9px] font-bold uppercase tracking-widest">
+                    STOPIEŃ {w.level || "?"}
+                  </span>
+                </div>
+                <p className="mt-1 font-headline text-[11px] text-on-surface-variant">
+                  {w.description || `${w.region ?? ""} | ${w.start ?? ""} – ${w.end ?? ""}`}
+                </p>
+              </div>
+            ))}
+          </>
+        )}
+
+        {/* Static risk items */}
+        <div className="flex items-center gap-2 px-1 pt-1 font-headline text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">
+          <span className="material-symbols-outlined text-xs">analytics</span>
+          Analiza scenariuszy
+        </div>
         {RISK_ITEMS.map((item) => (
           <div
             key={item.label}

@@ -8,13 +8,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Lublin – Awaria Środowiskowa Dashboard",
-    description="API zarządzania kryzysowego: jakość powietrza, meteo, obiekty wrażliwe, strefy zagrożenia.",
-    version="1.0.0",
+    description="API zarządzania kryzysowego: jakość powietrza, meteo, obiekty wrażliwe, strefy zagrożenia, ryzyko powodziowe.",
+    version="1.1.0",
     openapi_tags=[
         {"name": "Jakość powietrza", "description": "Dane PM2.5/PM10 ze stacji GIOŚ w okolicy Lublina"},
         {"name": "Pogoda", "description": "Warunki meteorologiczne z IMGW (wiatr, temperatura, opad)"},
         {"name": "Obiekty wrażliwe", "description": "Szkoły, szpitale, DPS-y, przedszkola z OpenStreetMap"},
         {"name": "Strefa zagrożenia", "description": "Analiza: łączy powietrze + meteo → strefy i rekomendacje"},
+        {"name": "Powódź", "description": "Dane hydrologiczne IMGW, ostrzeżenia powodziowe, analiza szpitali"},
     ],
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -25,7 +26,15 @@ SEARCH_RADIUS_KM = 30
 
 GIOS_BASE = "https://api.gios.gov.pl/pjp-api/v1/rest"
 IMGW_BASE = "https://danepubliczne.imgw.pl/api/data"
+IMGW_HYDRO = "https://danepubliczne.imgw.pl/api/data/hydro"
+IMGW_WARNINGS_HYDRO = "https://danepubliczne.imgw.pl/api/data/warningshydro"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+
+LUBELSKIE_RIVERS = {
+    "bug", "wieprz", "wisła", "san", "tyśmienica", "huczwa",
+    "bystrzyca", "krzna", "tanew", "por", "kurówka", "giełczew",
+    "uherka", "łabuńka", "wołkowianka", "ciemięga",
+}
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -303,6 +312,232 @@ async def get_danger_zone():
         "global_actions": global_actions,
         "zones": zones,
         "stations": air,
+    }
+
+
+# ── IMGW Hydrologia ─────────────────────────────────────────────────────────
+
+def _is_lubelskie_station(station: dict) -> bool:
+    """Check if a hydro station belongs to region near Lubelskie."""
+    river = (station.get("rzeka") or "").lower().strip()
+    if river in LUBELSKIE_RIVERS:
+        return True
+    province = (station.get("województwo") or station.get("wojewodztwo") or "").lower()
+    return "lubelskie" in province
+
+
+def _classify_water_level(station: dict) -> str:
+    """Classify station status based on warning/alarm thresholds."""
+    try:
+        level = float(station.get("stan_wody") or 0)
+    except (ValueError, TypeError):
+        return "stable"
+
+    alarm_raw = station.get("stan_alarmowy")
+    warning_raw = station.get("stan_ostrzegawczy")
+
+    try:
+        alarm = float(alarm_raw) if alarm_raw else None
+    except (ValueError, TypeError):
+        alarm = None
+    try:
+        warning = float(warning_raw) if warning_raw else None
+    except (ValueError, TypeError):
+        warning = None
+
+    if alarm and level >= alarm:
+        return "critical"
+    if warning and level >= warning:
+        return "warning"
+    return "stable"
+
+
+@app.get("/api/hydro", tags=["Powódź"], summary="Stany wód – stacje IMGW w Lubelskim")
+async def get_hydro():
+    """Bieżące stany wód ze stacji hydrologicznych IMGW w woj. lubelskim."""
+    async with httpx.AsyncClient(timeout=15) as client:
+        r = await client.get(IMGW_HYDRO)
+        all_stations = r.json()
+
+    results = []
+    for s in all_stations:
+        if not _is_lubelskie_station(s):
+            continue
+
+        status = _classify_water_level(s)
+        results.append({
+            "station": s.get("stacja"),
+            "river": s.get("rzeka"),
+            "province": s.get("województwo") or s.get("wojewodztwo"),
+            "level_cm": s.get("stan_wody"),
+            "level_date": s.get("stan_wody_data_pomiaru"),
+            "temperature": s.get("temperatura_wody"),
+            "warning_level": s.get("stan_ostrzegawczy"),
+            "alarm_level": s.get("stan_alarmowy"),
+            "trend": s.get("zjawisko_lodowe") or s.get("zjawisko_zapieczenie"),
+            "status": status,
+        })
+
+    results.sort(key=lambda x: {"critical": 0, "warning": 1, "stable": 2}.get(x["status"], 3))
+    return results
+
+
+@app.get("/api/flood-warnings", tags=["Powódź"], summary="Ostrzeżenia hydrologiczne IMGW")
+async def get_flood_warnings():
+    """Aktualnie obowiązujące ostrzeżenia hydrologiczne z IMGW."""
+    async with httpx.AsyncClient(timeout=15) as client:
+        r = await client.get(IMGW_WARNINGS_HYDRO)
+        try:
+            data = r.json()
+        except Exception:
+            return []
+
+    if not isinstance(data, list):
+        data = [data] if data else []
+
+    warnings = []
+    for w in data:
+        region = (w.get("teren") or w.get("region") or "").lower()
+        if "lubel" in region or "lubelskie" in region or not region:
+            warnings.append({
+                "id": w.get("id"),
+                "region": w.get("teren") or w.get("region"),
+                "level": w.get("stopien") or w.get("level"),
+                "phenomenon": w.get("zjawisko") or w.get("phenomenon"),
+                "start": w.get("od") or w.get("start"),
+                "end": w.get("do") or w.get("end"),
+                "description": w.get("tresc") or w.get("opis") or w.get("description"),
+                "probability": w.get("prawdopodobienstwo"),
+            })
+
+    return warnings
+
+
+@app.get("/api/flood-hospitals", tags=["Powódź"],
+         summary="Szpitale vs. powódź – status operacyjny")
+async def get_flood_hospitals():
+    """
+    Krzyżuje dane o szpitalach (OSM) z bieżącymi stanami wód (IMGW).
+    Zwraca status każdego szpitala:
+    - evacuate:   w promieniu 5 km od stacji w stanie alarmowym
+    - at_risk:    w promieniu 10 km od stacji w stanie ostrzegawczym
+    - redirect:   operacyjny, ale może przyjąć zasoby z ewakuowanych
+    - operational: brak zagrożenia
+    """
+    hydro_data = await get_hydro()
+    sensitive = await get_sensitive_objects()
+
+    hospitals = [obj for obj in sensitive if obj["category"] in ("szpital", "przychodnia")]
+
+    critical_stations = [s for s in hydro_data if s["status"] == "critical"]
+    warning_stations = [s for s in hydro_data if s["status"] == "warning"]
+
+    # Approximate coordinates for known hydro stations in Lubelskie
+    STATION_COORDS: dict[str, tuple[float, float]] = {
+        "Włodawa": (51.55, 23.55),
+        "Dorohusk": (51.17, 23.81),
+        "Kodeń": (51.75, 23.60),
+        "Terespol": (52.07, 23.62),
+        "Lubartów": (51.46, 22.61),
+        "Puławy": (51.41, 21.97),
+        "Dęblin": (51.56, 21.85),
+        "Annopol": (50.89, 21.86),
+        "Kraśnik": (50.93, 22.23),
+        "Zamość": (50.72, 23.25),
+        "Chełm": (51.14, 23.47),
+        "Biłgoraj": (50.54, 22.72),
+        "Janów Lubelski": (50.70, 22.42),
+        "Łęczna": (51.30, 22.88),
+        "Wieprz": (51.25, 22.60),
+        "Bystrzyca": (51.25, 22.55),
+        "Lublin": (51.25, 22.57),
+        "Radawiec": (51.22, 22.47),
+        "Kozłówka": (51.45, 22.55),
+        "Krasnystaw": (50.98, 23.17),
+    }
+
+    def get_station_coords(station_name: str) -> tuple[float, float] | None:
+        if not station_name:
+            return None
+        name_lower = station_name.strip()
+        for key, coords in STATION_COORDS.items():
+            if key.lower() in name_lower.lower() or name_lower.lower() in key.lower():
+                return coords
+        return None
+
+    EVAC_RADIUS_KM = 5
+    RISK_RADIUS_KM = 10
+
+    results = []
+    evacuate_count = 0
+    at_risk_count = 0
+
+    for h in hospitals:
+        h_lat, h_lon = h["lat"], h["lon"]
+        status = "operational"
+        nearest_threat = None
+        threat_distance = None
+
+        # Check against critical (alarm) stations
+        for s in critical_stations:
+            coords = get_station_coords(s.get("station", ""))
+            if not coords:
+                continue
+            dist = haversine(h_lat, h_lon, coords[0], coords[1])
+            if dist <= EVAC_RADIUS_KM:
+                status = "evacuate"
+                nearest_threat = s.get("station")
+                threat_distance = round(dist, 1)
+                break
+            if dist <= RISK_RADIUS_KM and status != "evacuate":
+                status = "at_risk"
+                nearest_threat = s.get("station")
+                threat_distance = round(dist, 1)
+
+        # Check against warning stations (only if not already critical)
+        if status == "operational":
+            for s in warning_stations:
+                coords = get_station_coords(s.get("station", ""))
+                if not coords:
+                    continue
+                dist = haversine(h_lat, h_lon, coords[0], coords[1])
+                if dist <= RISK_RADIUS_KM:
+                    status = "at_risk"
+                    nearest_threat = s.get("station")
+                    threat_distance = round(dist, 1)
+                    break
+
+        if status == "evacuate":
+            evacuate_count += 1
+        elif status == "at_risk":
+            at_risk_count += 1
+
+        results.append({
+            **h,
+            "flood_status": status,
+            "nearest_threat_station": nearest_threat,
+            "threat_distance_km": threat_distance,
+        })
+
+    # Mark safe hospitals far from threats as able to redirect resources
+    for r in results:
+        if r["flood_status"] == "operational" and (evacuate_count > 0 or at_risk_count > 0):
+            r["flood_status"] = "redirect"
+
+    results.sort(key=lambda x: {
+        "evacuate": 0, "at_risk": 1, "redirect": 2, "operational": 3
+    }.get(x["flood_status"], 4))
+
+    return {
+        "timestamp": datetime.now().isoformat(),
+        "summary": {
+            "total": len(results),
+            "evacuate": evacuate_count,
+            "at_risk": at_risk_count,
+            "redirect": len(results) - evacuate_count - at_risk_count,
+        },
+        "hydro_alerts": [s for s in hydro_data if s["status"] in ("critical", "warning")],
+        "hospitals": results,
     }
 
 

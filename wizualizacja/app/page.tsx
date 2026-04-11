@@ -7,8 +7,8 @@ import { BottomTicker } from '@/components/layout/BottomTicker';
 import { SideNavBar } from '@/components/layout/SideNavBar';
 import { TopNavBar } from '@/components/layout/TopNavBar';
 
-import { AssetDetailPanel } from '@/components/detail/AssetDetailPanel';
 import { CameraDetailPanel } from '@/components/detail/CameraDetailPanel';
+import { FloodHospitalsPanel } from '@/components/detail/FloodHospitalsPanel';
 import { MiniStatsCard } from '@/components/detail/MiniStatsCard';
 
 import { CrisisHeaderCard } from '@/components/panels/CrisisHeaderCard';
@@ -53,7 +53,6 @@ export default function HomePage() {
   const [layerToggles, setLayerToggles] =
     useState<LayerToggles>(DEFAULT_LAYERS);
   const [selectedCamera, setSelectedCamera] = useState<CameraFeed | null>(null);
-  const [assetDetailOpen, setAssetDetailOpen] = useState(true);
 
   const territories = useTerritories();
 
@@ -155,8 +154,8 @@ export default function HomePage() {
               onClose={() => setSelectedCamera(null)}
             />
           )}
-          {assetDetailOpen && !selectedCamera && (
-            <AssetDetailPanel onClose={() => setAssetDetailOpen(false)} />
+          {!selectedCamera && (
+            <FloodHospitalsPanel onClose={() => {}} />
           )}
           <MiniStatsCard
             value="42"
