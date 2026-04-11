@@ -1,33 +1,32 @@
-"use client";
+'use client';
 
-import dynamic from "next/dynamic";
-import { useState } from "react";
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import { BottomTicker } from "@/components/layout/BottomTicker";
-import { SideNavBar } from "@/components/layout/SideNavBar";
-import { TopNavBar } from "@/components/layout/TopNavBar";
+import { BottomTicker } from '@/components/layout/BottomTicker';
+import { SideNavBar } from '@/components/layout/SideNavBar';
+import { TopNavBar } from '@/components/layout/TopNavBar';
 
-import { AssetDetailPanel } from "@/components/detail/AssetDetailPanel";
-import { CameraDetailPanel } from "@/components/detail/CameraDetailPanel";
-import { MiniStatsCard } from "@/components/detail/MiniStatsCard";
+import { AssetDetailPanel } from '@/components/detail/AssetDetailPanel';
+import { CameraDetailPanel } from '@/components/detail/CameraDetailPanel';
+import { MiniStatsCard } from '@/components/detail/MiniStatsCard';
 
-import { CrisisHeaderCard } from "@/components/panels/CrisisHeaderCard";
-import { FilesPanel } from "@/components/panels/FilesPanel";
-import { LayersPanel } from "@/components/panels/LayersPanel";
-import { LivePanel } from "@/components/panels/LivePanel";
-import { MapPanel } from "@/components/panels/MapPanel";
-import { RiskPanel } from "@/components/panels/RiskPanel";
-import { TerritorialFilterPanel } from "@/components/panels/TerritorialFilterPanel";
+import { CrisisHeaderCard } from '@/components/panels/CrisisHeaderCard';
+import { FilesPanel } from '@/components/panels/FilesPanel';
+import { LayersPanel } from '@/components/panels/LayersPanel';
+import { LivePanel } from '@/components/panels/LivePanel';
+import { RiskPanel } from '@/components/panels/RiskPanel';
+import { TerritorialFilterPanel } from '@/components/panels/TerritorialFilterPanel';
 
-import { useTerritories } from "@/lib/useTerritories";
+import { useTerritories } from '@/lib/useTerritories';
 import type {
   CameraFeed,
   LayerToggles,
   PanelId,
-  TerritoryKind,
-} from "@/lib/types";
+  TerritoryKind
+} from '@/lib/types';
 
-const LubelskieMap = dynamic(() => import("@/components/map/LubelskieMap"), {
+const LubelskieMap = dynamic(() => import('@/components/map/LubelskieMap'), {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 flex items-center justify-center bg-surface-variant">
@@ -35,7 +34,7 @@ const LubelskieMap = dynamic(() => import("@/components/map/LubelskieMap"), {
         Ładowanie mapy...
       </span>
     </div>
-  ),
+  )
 });
 
 const DEFAULT_LAYERS: LayerToggles = {
@@ -43,26 +42,27 @@ const DEFAULT_LAYERS: LayerToggles = {
   floodZones: true,
   cameras: true,
   powiatBoundaries: true,
-  gminaBoundaries: true,
+  gminaBoundaries: true
 };
 
 export default function HomePage() {
-  const [activePanel, setActivePanel] = useState<PanelId | null>("map");
-  const [territoryLevel, setTerritoryLevel] = useState<TerritoryKind>("powiat");
+  const [activePanel, setActivePanel] = useState<PanelId | null>('map');
+  const [territoryLevel, setTerritoryLevel] = useState<TerritoryKind>('powiat');
   const [selectedPowiatId, setSelectedPowiatId] = useState<string | null>(null);
   const [selectedGminaId, setSelectedGminaId] = useState<string | null>(null);
-  const [layerToggles, setLayerToggles] = useState<LayerToggles>(DEFAULT_LAYERS);
+  const [layerToggles, setLayerToggles] =
+    useState<LayerToggles>(DEFAULT_LAYERS);
   const [selectedCamera, setSelectedCamera] = useState<CameraFeed | null>(null);
   const [assetDetailOpen, setAssetDetailOpen] = useState(true);
 
   const territories = useTerritories();
 
   function handleSidebarClick(panel: PanelId) {
-    setActivePanel((current) => (current === panel ? null : panel));
+    setActivePanel(current => (current === panel ? null : panel));
   }
 
   function toggleLayer(key: keyof LayerToggles) {
-    setLayerToggles((prev) => ({ ...prev, [key]: !prev[key] }));
+    setLayerToggles(prev => ({ ...prev, [key]: !prev[key] }));
   }
 
   function closePanel() {
@@ -85,7 +85,7 @@ export default function HomePage() {
           onSelectPowiat={setSelectedPowiatId}
           onSelectGmina={setSelectedGminaId}
           layerToggles={layerToggles}
-          onSelectCamera={(camera) => {
+          onSelectCamera={camera => {
             setSelectedCamera(camera);
           }}
         />
@@ -97,44 +97,33 @@ export default function HomePage() {
           <CrisisHeaderCard />
         </div>
 
-        {activePanel === "map" && (
-          <>
-            <div className="pointer-events-auto">
-              <MapPanel
-                level={territoryLevel}
-                onLevelChange={setTerritoryLevel}
-                powiatCount={territories.powiaty?.features.length ?? 0}
-                gminaCount={territories.gminy?.features.length ?? 0}
-                onClose={closePanel}
-              />
-            </div>
-            <div className="pointer-events-auto">
-              <TerritorialFilterPanel
-                powiaty={territories.powiaty}
-                gminy={territories.gminy}
-                loading={territories.status === "loading"}
-                selectedPowiatId={selectedPowiatId}
-                selectedGminaId={selectedGminaId}
-                onSelectPowiat={setSelectedPowiatId}
-                onSelectGmina={setSelectedGminaId}
-                onLevelChange={setTerritoryLevel}
-                level={territoryLevel}
-                onClose={closePanel}
-              />
-            </div>
-          </>
-        )}
-
-        {activePanel === "live" && (
+        {activePanel === 'map' && (
           <div className="pointer-events-auto">
-            <LivePanel
-              onSelectCamera={(camera) => setSelectedCamera(camera)}
+            <TerritorialFilterPanel
+              powiaty={territories.powiaty}
+              gminy={territories.gminy}
+              loading={territories.status === 'loading'}
+              selectedPowiatId={selectedPowiatId}
+              selectedGminaId={selectedGminaId}
+              onSelectPowiat={setSelectedPowiatId}
+              onSelectGmina={setSelectedGminaId}
+              onLevelChange={setTerritoryLevel}
+              level={territoryLevel}
               onClose={closePanel}
             />
           </div>
         )}
 
-        {activePanel === "layers" && (
+        {activePanel === 'live' && (
+          <div className="pointer-events-auto">
+            <LivePanel
+              onSelectCamera={camera => setSelectedCamera(camera)}
+              onClose={closePanel}
+            />
+          </div>
+        )}
+
+        {activePanel === 'layers' && (
           <div className="pointer-events-auto">
             <LayersPanel
               toggles={layerToggles}
@@ -144,13 +133,13 @@ export default function HomePage() {
           </div>
         )}
 
-        {activePanel === "risk" && (
+        {activePanel === 'risk' && (
           <div className="pointer-events-auto">
             <RiskPanel onClose={closePanel} />
           </div>
         )}
 
-        {activePanel === "files" && (
+        {activePanel === 'files' && (
           <div className="pointer-events-auto">
             <FilesPanel onClose={closePanel} />
           </div>
