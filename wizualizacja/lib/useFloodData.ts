@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import type { FloodHospitalsResponse, HydroStation } from "./types";
+import { useEffect, useState } from 'react';
+import type { FloodHospitalsResponse, HydroStation } from './types';
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = '/api/szpitale';
 
 export function useHydroStations() {
   const [data, setData] = useState<HydroStation[]>([]);
@@ -13,16 +13,19 @@ export function useHydroStations() {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(`${API_BASE}/api/hydro`);
+        const r = await fetch(`${API_BASE}/hydro`);
+        if (!r.ok) throw new Error('not ok');
         const json = await r.json();
-        if (!cancelled) setData(json);
+        if (!cancelled && Array.isArray(json)) setData(json);
       } catch {
         /* API unavailable – keep empty */
       } finally {
         if (!cancelled) setLoading(false);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return { data, loading };
@@ -36,16 +39,20 @@ export function useFloodHospitals() {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(`${API_BASE}/api/flood-hospitals`);
+        const r = await fetch(`${API_BASE}/flood-hospitals`);
+        if (!r.ok) throw new Error('not ok');
         const json: FloodHospitalsResponse = await r.json();
-        if (!cancelled) setData(json);
+        if (!cancelled && json?.summary && Array.isArray(json?.hospitals))
+          setData(json);
       } catch {
         /* API unavailable */
       } finally {
         if (!cancelled) setLoading(false);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return { data, loading };

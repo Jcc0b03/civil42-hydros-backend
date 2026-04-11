@@ -1,7 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useRef } from "react";
-import type { FeatureGroup as LeafletFeatureGroup, LatLngBoundsExpression } from "leaflet";
+import { useEffect, useMemo, useRef } from 'react';
+import type {
+  FeatureGroup as LeafletFeatureGroup,
+  LatLngBoundsExpression
+} from 'leaflet';
 import {
   CircleMarker,
   GeoJSON,
@@ -10,22 +13,23 @@ import {
   TileLayer,
   Tooltip,
   WMSTileLayer,
-  useMap,
-} from "react-leaflet";
+  useMap
+} from 'react-leaflet';
 
 import {
   CAMERA_CLUSTER_ZOOM_THRESHOLD,
   CAMERA_FEEDS,
   LUBELSKIE_CENTER,
-  LUBELSKIE_INITIAL_ZOOM,
-} from "@/lib/constants";
+  LUBELSKIE_INITIAL_ZOOM
+} from '@/lib/constants';
 import type {
   CameraFeed,
   LayerToggles,
   TerritoryFeature,
   TerritoryFeatureCollection,
   TerritoryKind,
-} from "@/lib/types";
+  ApiHospital
+} from '@/lib/types';
 
 type Props = {
   powiaty: TerritoryFeatureCollection | null;
@@ -37,30 +41,33 @@ type Props = {
   onSelectGmina: (id: string | null) => void;
   layerToggles: LayerToggles;
   onSelectCamera: (camera: CameraFeed) => void;
+  hospitals?: ApiHospital[];
+  onSelectHospital?: (hospital: ApiHospital) => void;
+  selectedHospital?: ApiHospital | null;
 };
 
 const BASE_STYLE = {
-  color: "#2d6c00",
+  color: '#2d6c00',
   weight: 1.2,
   opacity: 0.75,
-  fillColor: "#72bf44",
-  fillOpacity: 0.06,
+  fillColor: '#72bf44',
+  fillOpacity: 0.06
 };
 
 const HOVER_STYLE = {
-  color: "#2d6c00",
+  color: '#2d6c00',
   weight: 2.2,
   opacity: 1,
-  fillColor: "#72bf44",
-  fillOpacity: 0.18,
+  fillColor: '#72bf44',
+  fillOpacity: 0.18
 };
 
 const SELECTED_STYLE = {
-  color: "#bb0013",
+  color: '#bb0013',
   weight: 2.6,
   opacity: 1,
-  fillColor: "#ed1c24",
-  fillOpacity: 0.18,
+  fillColor: '#ed1c24',
+  fillOpacity: 0.18
 };
 
 export default function LubelskieMap({
@@ -73,12 +80,17 @@ export default function LubelskieMap({
   onSelectGmina,
   layerToggles,
   onSelectCamera,
+  hospitals,
+  onSelectHospital,
+  selectedHospital
 }: Props) {
   const powiatLayerRef = useRef<LeafletFeatureGroup | null>(null);
   const gminaLayerRef = useRef<LeafletFeatureGroup | null>(null);
 
-  const showPowiaty = layerToggles.powiatBoundaries && level === "powiat" && !!powiaty;
-  const showGminy = layerToggles.gminaBoundaries && level === "gmina" && !!gminy;
+  const showPowiaty =
+    layerToggles.powiatBoundaries && level === 'powiat' && !!powiaty;
+  const showGminy =
+    layerToggles.gminaBoundaries && level === 'gmina' && !!gminy;
 
   return (
     <div className="absolute inset-0">
@@ -92,7 +104,7 @@ export default function LubelskieMap({
         className="h-full w-full bg-[#f8f9fa]"
       >
         <TileLayer
-          attribution='&copy; OpenStreetMap contributors &copy; CARTO'
+          attribution="&copy; OpenStreetMap contributors &copy; CARTO"
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           subdomains="abcd"
           maxZoom={19}
@@ -105,37 +117,41 @@ export default function LubelskieMap({
           selectedGminaId={selectedGminaId}
         />
 
+        <FlyToHospital hospital={selectedHospital ?? null} />
+
         {showPowiaty && (
           <GeoJSON
-            key={`powiaty-${selectedPowiatId ?? "none"}`}
+            key={`powiaty-${selectedPowiatId ?? 'none'}`}
             data={powiaty as unknown as GeoJSON.FeatureCollection}
-            ref={(ref) => {
+            ref={ref => {
               powiatLayerRef.current = ref as unknown as LeafletFeatureGroup;
             }}
-            style={(feature) => {
+            style={feature => {
               const props = (feature as TerritoryFeature).properties;
-              return props.id === selectedPowiatId ? SELECTED_STYLE : BASE_STYLE;
+              return props.id === selectedPowiatId
+                ? SELECTED_STYLE
+                : BASE_STYLE;
             }}
             onEachFeature={(feature, layer) => {
               const props = (feature as TerritoryFeature).properties;
               layer.bindTooltip(props.name, {
-                className: "powiat-label",
-                direction: "center",
+                className: 'powiat-label',
+                direction: 'center',
                 sticky: false,
-                permanent: false,
+                permanent: false
               });
               layer.on({
-                mouseover: (e) => {
+                mouseover: e => {
                   if (props.id !== selectedPowiatId) {
                     (e.target as any).setStyle(HOVER_STYLE);
                   }
                 },
-                mouseout: (e) => {
+                mouseout: e => {
                   if (props.id !== selectedPowiatId) {
                     (e.target as any).setStyle(BASE_STYLE);
                   }
                 },
-                click: () => onSelectPowiat(props.id),
+                click: () => onSelectPowiat(props.id)
               });
             }}
           />
@@ -143,35 +159,35 @@ export default function LubelskieMap({
 
         {showGminy && (
           <GeoJSON
-            key={`gminy-${selectedGminaId ?? "none"}`}
+            key={`gminy-${selectedGminaId ?? 'none'}`}
             data={gminy as unknown as GeoJSON.FeatureCollection}
-            ref={(ref) => {
+            ref={ref => {
               gminaLayerRef.current = ref as unknown as LeafletFeatureGroup;
             }}
-            style={(feature) => {
+            style={feature => {
               const props = (feature as TerritoryFeature).properties;
               return props.id === selectedGminaId ? SELECTED_STYLE : BASE_STYLE;
             }}
             onEachFeature={(feature, layer) => {
               const props = (feature as TerritoryFeature).properties;
               layer.bindTooltip(props.name, {
-                className: "gmina-label",
-                direction: "center",
+                className: 'gmina-label',
+                direction: 'center',
                 sticky: false,
-                permanent: false,
+                permanent: false
               });
               layer.on({
-                mouseover: (e) => {
+                mouseover: e => {
                   if (props.id !== selectedGminaId) {
                     (e.target as any).setStyle(HOVER_STYLE);
                   }
                 },
-                mouseout: (e) => {
+                mouseout: e => {
                   if (props.id !== selectedGminaId) {
                     (e.target as any).setStyle(BASE_STYLE);
                   }
                 },
-                click: () => onSelectGmina(props.id),
+                click: () => onSelectGmina(props.id)
               });
             }}
           />
@@ -179,6 +195,13 @@ export default function LubelskieMap({
 
         {layerToggles.cameras && (
           <CameraLayer onSelectCamera={onSelectCamera} />
+        )}
+
+        {layerToggles.hospitals && hospitals && hospitals.length > 0 && (
+          <HospitalLayer
+            hospitals={hospitals}
+            onSelectHospital={onSelectHospital}
+          />
         )}
 
         {layerToggles.floodZones && (
@@ -196,14 +219,83 @@ export default function LubelskieMap({
   );
 }
 
-function CameraLayer({ onSelectCamera }: { onSelectCamera: (camera: CameraFeed) => void }) {
+function HospitalLayer({
+  hospitals,
+  onSelectHospital
+}: {
+  hospitals: ApiHospital[];
+  onSelectHospital?: (hospital: ApiHospital) => void;
+}) {
+  const geoHospitals = hospitals.filter(
+    h => h.latitude != null && h.longitude != null
+  );
+
+  return (
+    <>
+      {geoHospitals.map(hospital => {
+        const totalFree = hospital.departments.reduce(
+          (s, d) => s + d.free_beds,
+          0
+        );
+        const totalBeds = hospital.departments.reduce(
+          (s, d) => s + (d.total_beds ?? 0),
+          0
+        );
+        const ratio = totalBeds > 0 ? totalFree / totalBeds : 1;
+        const fillColor =
+          ratio < 0.1 ? '#bb0013' : ratio < 0.3 ? '#d97706' : '#2d6c00';
+
+        return (
+          <CircleMarker
+            key={hospital.id}
+            center={[hospital.latitude!, hospital.longitude!]}
+            radius={8}
+            pathOptions={{
+              color: fillColor,
+              weight: 2,
+              fillColor,
+              fillOpacity: 0.85
+            }}
+            eventHandlers={{
+              click: () => onSelectHospital?.(hospital)
+            }}
+          >
+            <Tooltip
+              direction="top"
+              offset={[0, -8]}
+              opacity={1}
+              className="map-hospital-label"
+            >
+              {hospital.hospital_name}
+            </Tooltip>
+            <Popup>
+              <strong>{hospital.hospital_name}</strong>
+              <br />
+              {hospital.address}
+              <br />
+              Wolne łóżka: {totalFree} / {totalBeds}
+            </Popup>
+          </CircleMarker>
+        );
+      })}
+    </>
+  );
+}
+
+function CameraLayer({
+  onSelectCamera
+}: {
+  onSelectCamera: (camera: CameraFeed) => void;
+}) {
   const map = useMap();
   const zoom = map.getZoom();
   const clustered = zoom < CAMERA_CLUSTER_ZOOM_THRESHOLD;
 
   const clusterCenter = useMemo<[number, number]>(() => {
-    const lat = CAMERA_FEEDS.reduce((sum, c) => sum + c.lat, 0) / CAMERA_FEEDS.length;
-    const lon = CAMERA_FEEDS.reduce((sum, c) => sum + c.lon, 0) / CAMERA_FEEDS.length;
+    const lat =
+      CAMERA_FEEDS.reduce((sum, c) => sum + c.lat, 0) / CAMERA_FEEDS.length;
+    const lon =
+      CAMERA_FEEDS.reduce((sum, c) => sum + c.lon, 0) / CAMERA_FEEDS.length;
     return [lat, lon];
   }, []);
 
@@ -213,13 +305,14 @@ function CameraLayer({ onSelectCamera }: { onSelectCamera: (camera: CameraFeed) 
         center={clusterCenter}
         radius={16}
         pathOptions={{
-          color: "#6d1111",
+          color: '#6d1111',
           weight: 2,
-          fillColor: "#df5454",
-          fillOpacity: 0.94,
+          fillColor: '#df5454',
+          fillOpacity: 0.94
         }}
         eventHandlers={{
-          click: () => map.flyTo(clusterCenter, CAMERA_CLUSTER_ZOOM_THRESHOLD + 1),
+          click: () =>
+            map.flyTo(clusterCenter, CAMERA_CLUSTER_ZOOM_THRESHOLD + 1)
         }}
       >
         <Tooltip
@@ -237,19 +330,19 @@ function CameraLayer({ onSelectCamera }: { onSelectCamera: (camera: CameraFeed) 
 
   return (
     <>
-      {CAMERA_FEEDS.map((camera) => (
+      {CAMERA_FEEDS.map(camera => (
         <CircleMarker
           key={camera.id}
           center={[camera.lat, camera.lon]}
           radius={10}
           pathOptions={{
-            color: "#6d1111",
+            color: '#6d1111',
             weight: 2,
-            fillColor: "#df5454",
-            fillOpacity: 0.95,
+            fillColor: '#df5454',
+            fillOpacity: 0.95
           }}
           eventHandlers={{
-            click: () => onSelectCamera(camera),
+            click: () => onSelectCamera(camera)
           }}
         >
           <Tooltip
@@ -280,11 +373,23 @@ function CameraLayer({ onSelectCamera }: { onSelectCamera: (camera: CameraFeed) 
   );
 }
 
+function FlyToHospital({ hospital }: { hospital: ApiHospital | null }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!hospital || hospital.latitude == null || hospital.longitude == null)
+      return;
+    map.flyTo([hospital.latitude, hospital.longitude], 14, { duration: 0.8 });
+  }, [map, hospital]);
+
+  return null;
+}
+
 function FitToFeatures({
   powiaty,
   gminy,
   selectedPowiatId,
-  selectedGminaId,
+  selectedGminaId
 }: {
   powiaty: TerritoryFeatureCollection | null;
   gminy: TerritoryFeatureCollection | null;
@@ -305,7 +410,9 @@ function FitToFeatures({
 
   useEffect(() => {
     if (!selectedPowiatId || !powiaty) return;
-    const feature = powiaty.features.find((f) => f.properties.id === selectedPowiatId);
+    const feature = powiaty.features.find(
+      f => f.properties.id === selectedPowiatId
+    );
     if (!feature) return;
     const bounds = featureBounds(feature);
     if (bounds) map.flyToBounds(bounds, { padding: [80, 80], duration: 0.6 });
@@ -313,7 +420,9 @@ function FitToFeatures({
 
   useEffect(() => {
     if (!selectedGminaId || !gminy) return;
-    const feature = gminy.features.find((f) => f.properties.id === selectedGminaId);
+    const feature = gminy.features.find(
+      f => f.properties.id === selectedGminaId
+    );
     if (!feature) return;
     const bounds = featureBounds(feature);
     if (bounds) map.flyToBounds(bounds, { padding: [100, 100], duration: 0.6 });
@@ -323,7 +432,7 @@ function FitToFeatures({
 }
 
 function featureCollectionBounds(
-  fc: TerritoryFeatureCollection,
+  fc: TerritoryFeatureCollection
 ): LatLngBoundsExpression | null {
   let minLat = Infinity,
     maxLat = -Infinity,
@@ -341,11 +450,13 @@ function featureCollectionBounds(
   if (!Number.isFinite(minLat)) return null;
   return [
     [minLat, minLon],
-    [maxLat, maxLon],
+    [maxLat, maxLon]
   ];
 }
 
-function featureBounds(feature: TerritoryFeature): LatLngBoundsExpression | null {
+function featureBounds(
+  feature: TerritoryFeature
+): LatLngBoundsExpression | null {
   const coords = collectCoords(feature.geometry);
   if (coords.length === 0) return null;
   let minLat = Infinity,
@@ -360,14 +471,14 @@ function featureBounds(feature: TerritoryFeature): LatLngBoundsExpression | null
   }
   return [
     [minLat, minLon],
-    [maxLat, maxLon],
+    [maxLat, maxLon]
   ];
 }
 
 function collectCoords(
-  geom: GeoJSON.Polygon | GeoJSON.MultiPolygon,
+  geom: GeoJSON.Polygon | GeoJSON.MultiPolygon
 ): Array<[number, number]> {
-  if (geom.type === "Polygon") {
+  if (geom.type === 'Polygon') {
     return geom.coordinates.flat() as Array<[number, number]>;
   }
   return geom.coordinates.flat(2) as Array<[number, number]>;

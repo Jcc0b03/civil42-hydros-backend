@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import "leaflet/dist/leaflet.css";
-import "./globals.css";
+import type { Metadata } from 'next';
+import 'leaflet/dist/leaflet.css';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Geospatial Command Authority | Lubelskie",
+  title: 'Centrum Dowodzenia | Lubelskie',
   description:
-    "Centrum dowodzenia kryzysowego dla województwa lubelskiego - mapa, kamery, ryzyko powodziowe.",
+    'Centrum dowodzenia kryzysowego dla województwa lubelskiego - mapa, kamery, ryzyko powodziowe.'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

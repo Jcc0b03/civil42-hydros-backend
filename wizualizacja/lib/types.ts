@@ -1,4 +1,4 @@
-export type CameraAlert = "good" | "meh" | "bad";
+export type CameraAlert = 'good' | 'meh' | 'bad';
 
 export type CameraFeed = {
   id: string;
@@ -11,7 +11,7 @@ export type CameraFeed = {
   alertText: string;
 };
 
-export type TerritoryKind = "powiat" | "gmina";
+export type TerritoryKind = 'powiat' | 'gmina';
 
 export type TerritoryProperties = {
   id: string;
@@ -32,7 +32,7 @@ export type TerritoryFeatureCollection = GeoJSON.FeatureCollection<
   TerritoryProperties
 >;
 
-export type PanelId = "map" | "live" | "layers" | "risk" | "files";
+export type PanelId = 'map' | 'live' | 'layers' | 'risk' | 'files';
 
 export type LayerToggles = {
   hospitals: boolean;
@@ -45,7 +45,7 @@ export type LayerToggles = {
 export type RiverStatus = {
   name: string;
   level: string;
-  status: "critical" | "warning" | "stable";
+  status: 'critical' | 'warning' | 'stable';
 };
 
 export type HydroStation = {
@@ -58,7 +58,7 @@ export type HydroStation = {
   warning_level: string | null;
   alarm_level: string | null;
   trend: string | null;
-  status: "critical" | "warning" | "stable";
+  status: 'critical' | 'warning' | 'stable';
 };
 
 export type FloodWarning = {
@@ -72,7 +72,11 @@ export type FloodWarning = {
   probability: string | null;
 };
 
-export type HospitalFloodStatus = "evacuate" | "at_risk" | "redirect" | "operational";
+export type HospitalFloodStatus =
+  | 'evacuate'
+  | 'at_risk'
+  | 'redirect'
+  | 'operational';
 
 export type FloodHospital = {
   name: string;
@@ -94,4 +98,48 @@ export type FloodHospitalsResponse = {
   };
   hydro_alerts: HydroStation[];
   hospitals: FloodHospital[];
+};
+
+// ── Szpitale Lublin API types ──
+
+export type ApiHospitalDepartment = {
+  department_id: number;
+  department_name: string;
+  free_beds: number;
+  total_beds: number | null;
+  source_updated_at: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ApiHospital = {
+  id: number;
+  hospital_name: string;
+  address: string;
+  latitude: number | null;
+  longitude: number | null;
+  created_at: string;
+  updated_at: string;
+  departments: ApiHospitalDepartment[];
+};
+
+export type ApiHospitalListResponse = {
+  hospitals: ApiHospital[];
+};
+
+export type ApiDepartmentSummary = {
+  id: number;
+  name: string;
+  report_url: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ApiStats = {
+  hospitals: number;
+  departments: number;
+  hospital_departments: number;
+  hospitals_missing_coordinates: number;
+  last_refresh_at: string;
+  last_successful_ingestion_at: string;
 };

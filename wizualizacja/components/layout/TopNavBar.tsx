@@ -1,30 +1,36 @@
-const NAV_ITEMS = [
-  { label: "Regional Intel", active: true },
-  { label: "Logistics", active: false },
-  { label: "Assets", active: false },
-  { label: "Personnel", active: false },
+export type TopTab = 'map' | 'hospitals';
+
+const NAV_ITEMS: Array<{ id: TopTab; label: string }> = [
+  { id: 'map', label: 'Przegląd regionalny' },
+  { id: 'hospitals', label: 'Szpitale' }
 ];
 
-export function TopNavBar() {
+type Props = {
+  activeTab?: TopTab;
+  onTabChange?: (tab: TopTab) => void;
+};
+
+export function TopNavBar({ activeTab = 'map', onTabChange }: Props) {
   return (
     <header className="fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b border-outline bg-surface-variant px-8">
       <div className="flex items-center gap-8">
         <span className="font-headline text-lg font-bold uppercase tracking-tight text-primary-dark">
-          Geospatial Command Authority
+          Centrum Dowodzenia
         </span>
         <nav className="hidden h-full items-center gap-6 pt-1 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href="#"
+          {NAV_ITEMS.map(item => (
+            <button
+              type="button"
+              key={item.id}
+              onClick={() => onTabChange?.(item.id)}
               className={
-                item.active
-                  ? "border-b-2 border-primary-dark pb-1 font-headline text-sm font-bold tracking-tight text-primary-dark"
-                  : "rounded px-2 py-1 font-headline text-sm tracking-tight text-on-surface/70 transition-colors hover:bg-outline"
+                activeTab === item.id
+                  ? 'border-b-2 border-primary-dark pb-1 font-headline text-sm font-bold tracking-tight text-primary-dark'
+                  : 'rounded px-2 py-1 font-headline text-sm tracking-tight text-on-surface/70 transition-colors hover:bg-outline'
               }
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
       </div>
@@ -36,7 +42,7 @@ export function TopNavBar() {
           </span>
           <input
             type="text"
-            placeholder="Szukaj sektorów..."
+            placeholder="Szukaj..."
             className="w-48 border-none bg-transparent text-xs text-on-surface focus:outline-none focus:ring-0"
           />
         </div>

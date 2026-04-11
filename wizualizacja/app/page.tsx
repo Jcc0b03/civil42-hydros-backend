@@ -6,9 +6,12 @@ import { useState } from 'react';
 import { BottomTicker } from '@/components/layout/BottomTicker';
 import { SideNavBar } from '@/components/layout/SideNavBar';
 import { TopNavBar } from '@/components/layout/TopNavBar';
+import type { TopTab } from '@/components/layout/TopNavBar';
 
 import { CameraDetailPanel } from '@/components/detail/CameraDetailPanel';
 import { FloodHospitalsPanel } from '@/components/detail/FloodHospitalsPanel';
+import { HospitalDetailPanel } from '@/components/detail/HospitalDetailPanel';
+import { HospitalListPanel } from '@/components/detail/HospitalListPanel';
 import { MiniStatsCard } from '@/components/detail/MiniStatsCard';
 
 import { CrisisHeaderCard } from '@/components/panels/CrisisHeaderCard';
@@ -19,7 +22,9 @@ import { RiskPanel } from '@/components/panels/RiskPanel';
 import { TerritorialFilterPanel } from '@/components/panels/TerritorialFilterPanel';
 
 import { useTerritories } from '@/lib/useTerritories';
+import { useHospitals, useHospitalStats } from '@/lib/useHospitals';
 import type {
+  ApiHospital,
   CameraFeed,
   LayerToggles,
   PanelId,
@@ -46,6 +51,7 @@ const DEFAULT_LAYERS: LayerToggles = {
 };
 
 export default function HomePage() {
+  const [activeTab, setActiveTab] = useState<TopTab>('map');
   const [activePanel, setActivePanel] = useState<PanelId | null>('map');
   const [territoryLevel, setTerritoryLevel] = useState<TerritoryKind>('powiat');
   const [selectedPowiatId, setSelectedPowiatId] = useState<string | null>(null);
@@ -53,8 +59,13 @@ export default function HomePage() {
   const [layerToggles, setLayerToggles] =
     useState<LayerToggles>(DEFAULT_LAYERS);
   const [selectedCamera, setSelectedCamera] = useState<CameraFeed | null>(null);
+  const [selectedHospital, setSelectedHospital] = useState<ApiHospital | null>(
+    null
+  );
 
   const territories = useTerritories();
+  const { hospitals, loading: hospitalsLoading } = useHospitals();
+  const { stats } = useHospitalStats();
 
   function handleSidebarClick(panel: PanelId) {
     setActivePanel(current => (current === panel ? null : panel));
@@ -70,102 +81,175 @@ export default function HomePage() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-surface text-on-surface">
-      <TopNavBar />
+      <TopNavBar activeTab={activeTab} onTabChange={setActiveTab} />
       <SideNavBar activePanel={activePanel} onSelect={handleSidebarClick} />
 
-      {/* Map background */}
-      <div className="absolute inset-0 top-16 z-0 bg-grid">
-        <LubelskieMap
-          powiaty={territories.powiaty}
-          gminy={territories.gminy}
-          level={territoryLevel}
-          selectedPowiatId={selectedPowiatId}
-          selectedGminaId={selectedGminaId}
-          onSelectPowiat={setSelectedPowiatId}
-          onSelectGmina={setSelectedGminaId}
-          layerToggles={layerToggles}
-          onSelectCamera={camera => {
-            setSelectedCamera(camera);
-          }}
-        />
-      </div>
-
-      {/* Floating left panel stack */}
-      <div className="pointer-events-none fixed left-[84px] top-20 z-40 flex max-h-[calc(100vh-10rem)] w-80 flex-col gap-4 overflow-y-auto pr-1 no-scrollbar">
-        <div className="pointer-events-auto">
-          <CrisisHeaderCard />
-        </div>
-
-        {activePanel === 'map' && (
-          <div className="pointer-events-auto">
-            <TerritorialFilterPanel
+      {activeTab === 'map' && (
+        <>
+          {/* Map background */}
+          <div className="absolute inset-0 top-16 z-0 bg-grid">
+            <LubelskieMap
               powiaty={territories.powiaty}
               gminy={territories.gminy}
-              loading={territories.status === 'loading'}
+              level={territoryLevel}
               selectedPowiatId={selectedPowiatId}
               selectedGminaId={selectedGminaId}
               onSelectPowiat={setSelectedPowiatId}
               onSelectGmina={setSelectedGminaId}
-              onLevelChange={setTerritoryLevel}
+              layerToggles={layerToggles}
+              onSelectCamera={camera => {
+                setSelectedCamera(camera);
+                setSelectedHospital(null);
+              }}
+              hospitals={hospitals}
+              onSelectHospital={hospital => {
+                setSelectedHospital(hospital);
+                setSelectedCamera(null);
+              }}
+              selectedHospital={selectedHospital}
+            />
+          </div>
+
+          {/* Floating left panel stack */}
+          <div className="pointer-events-none fixed left-[84px] top-20 z-40 flex max-h-[calc(100vh-10rem)] w-80 flex-col gap-4 overflow-y-auto pr-1 no-scrollbar">
+            <div className="pointer-events-auto">
+              <CrisisHeaderCard />
+            </div>
+
+            {activePanel === 'map' && (
+              <div className="pointer-events-auto">
+                <TerritorialFilterPanel
+                  powiaty={territories.powiaty}
+                  gminy={territories.gminy}
+                  loading={territories.status === 'loading'}
+                  selectedPowiatId={selectedPowiatId}
+                  selectedGminaId={selectedGminaId}
+                  onSelectPowiat={setSelectedPowiatId}
+                  onSelectGmina={setSelectedGminaId}
+                  onLevelChange={setTerritoryLevel}
+                  level={territoryLevel}
+                  onClose={closePanel}
+                />
+              </div>
+            )}
+
+            {activePanel === 'live' && (
+              <div className="pointer-events-auto">
+                <LivePanel
+                  onSelectCamera={camera => setSelectedCamera(camera)}
+                  onClose={closePanel}
+                />
+              </div>
+            )}
+
+            {activePanel === 'layers' && (
+              <div className="pointer-events-auto">
+                <LayersPanel
+                  toggles={layerToggles}
+                  onToggle={toggleLayer}
+                  onClose={closePanel}
+                />
+              </div>
+            )}
+
+            {activePanel === 'risk' && (
+              <div className="pointer-events-auto">
+                <RiskPanel onClose={closePanel} />
+              </div>
+            )}
+
+            {activePanel === 'files' && (
+              <div className="pointer-events-auto">
+                <FilesPanel onClose={closePanel} />
+              </div>
+            )}
+          </div>
+
+          {/* Right detail column */}
+          <main className="pointer-events-none relative z-10 flex h-full justify-end pl-24 pr-6 pt-20">
+            <section className="pointer-events-auto flex w-[420px] flex-col gap-4 py-4">
+              {selectedCamera && (
+                <CameraDetailPanel
+                  camera={selectedCamera}
+                  onClose={() => setSelectedCamera(null)}
+                />
+              )}
+              {selectedHospital && (
+                <HospitalDetailPanel
+                  hospital={selectedHospital}
+                  onClose={() => setSelectedHospital(null)}
+                />
+              )}
+              {!selectedCamera && !selectedHospital && (
+                <FloodHospitalsPanel onClose={() => {}} />
+              )}
+              <MiniStatsCard
+                value={stats ? String(stats.hospitals) : '—'}
+                label="Szpitale w systemie"
+                caption={
+                  stats
+                    ? `${stats.departments} oddziałów monitorowanych`
+                    : 'Ładowanie...'
+                }
+              />
+            </section>
+          </main>
+
+          <BottomTicker />
+        </>
+      )}
+
+      {activeTab === 'hospitals' && (
+        <div className="fixed inset-0 top-16 z-10 flex bg-surface">
+          {/* Left sidebar spacer */}
+          <div className="w-[72px] shrink-0" />
+
+          {/* Hospital list */}
+          <div className="flex w-[480px] shrink-0 flex-col border-r border-outline bg-white">
+            <HospitalListPanel
+              hospitals={hospitals}
+              loading={hospitalsLoading}
+              onSelectHospital={hospital => {
+                setSelectedHospital(hospital);
+              }}
+            />
+          </div>
+
+          {/* Map + detail side */}
+          <div className="relative flex-1">
+            <LubelskieMap
+              powiaty={territories.powiaty}
+              gminy={territories.gminy}
               level={territoryLevel}
-              onClose={closePanel}
+              selectedPowiatId={selectedPowiatId}
+              selectedGminaId={selectedGminaId}
+              onSelectPowiat={setSelectedPowiatId}
+              onSelectGmina={setSelectedGminaId}
+              layerToggles={layerToggles}
+              onSelectCamera={camera => {
+                setSelectedCamera(camera);
+                setSelectedHospital(null);
+              }}
+              hospitals={hospitals}
+              onSelectHospital={hospital => {
+                setSelectedHospital(hospital);
+                setSelectedCamera(null);
+              }}
+              selectedHospital={selectedHospital}
             />
+
+            {/* Detail overlay */}
+            {selectedHospital && (
+              <div className="pointer-events-auto absolute right-4 top-4 z-20 w-[400px]">
+                <HospitalDetailPanel
+                  hospital={selectedHospital}
+                  onClose={() => setSelectedHospital(null)}
+                />
+              </div>
+            )}
           </div>
-        )}
-
-        {activePanel === 'live' && (
-          <div className="pointer-events-auto">
-            <LivePanel
-              onSelectCamera={camera => setSelectedCamera(camera)}
-              onClose={closePanel}
-            />
-          </div>
-        )}
-
-        {activePanel === 'layers' && (
-          <div className="pointer-events-auto">
-            <LayersPanel
-              toggles={layerToggles}
-              onToggle={toggleLayer}
-              onClose={closePanel}
-            />
-          </div>
-        )}
-
-        {activePanel === 'risk' && (
-          <div className="pointer-events-auto">
-            <RiskPanel onClose={closePanel} />
-          </div>
-        )}
-
-        {activePanel === 'files' && (
-          <div className="pointer-events-auto">
-            <FilesPanel onClose={closePanel} />
-          </div>
-        )}
-      </div>
-
-      {/* Right detail column */}
-      <main className="pointer-events-none relative z-10 flex h-full justify-end pl-24 pr-6 pt-20">
-        <section className="pointer-events-auto flex w-[420px] flex-col gap-4 py-4">
-          {selectedCamera && (
-            <CameraDetailPanel
-              camera={selectedCamera}
-              onClose={() => setSelectedCamera(null)}
-            />
-          )}
-          {!selectedCamera && (
-            <FloodHospitalsPanel onClose={() => {}} />
-          )}
-          <MiniStatsCard
-            value="42"
-            label="Aktywne incydenty"
-            caption="Zasięg sektora 4-Alpha"
-          />
-        </section>
-      </main>
-
-      <BottomTicker />
+        </div>
+      )}
     </div>
   );
 }
