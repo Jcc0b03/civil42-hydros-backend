@@ -1,9 +1,19 @@
 .venv/
 __pycache__/
 *.pyc
+.env
 api/.env
 
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
 wizualizacja/node_modules/
 wizualizacja/.next/
 
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
