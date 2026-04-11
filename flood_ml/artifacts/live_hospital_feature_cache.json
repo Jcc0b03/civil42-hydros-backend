@@ -1,0 +1,11 @@
+{
+  "saved_at": "2026-04-11T20:46:24+00:00",
+  "features": {
+    "station_count": 21,
+    "mean_level": 173.52380952380952,
+    "max_level": 365.0,
+    "p90_level": 276.0,
+    "mean_flow": 88.59285714285714,
+    "max_flow": 644.0
+  }
+}

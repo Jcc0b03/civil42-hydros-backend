@@ -1,0 +1,4294 @@
+{
+  "wygenerowano": "2026-04-11 17:23:08",
+  "liczba_szpitali": 40,
+  "liczba_oddzialow": 99,
+  "liczba_rekordow": 555,
+  "bledy": [],
+  "szpitale": [
+    {
+      "szpital": "Samodzielny Publiczny Zespół Zakładów Opieki Zdrowotnej w Janowie Lubelskim",
+      "powiat": "janowski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "23-300 Janów Lubelski , ul. Zamoyskiego 149",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/rbusU3iuo4A2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 13,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział ginekologiczno-położniczo-noworodkowy Liczba lóżek ogółem: 15, w tym liczba łóżek dla noworodków: 3",
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział wewnętrzny",
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "PSYCHOGERIATRYCZNY",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:07:39"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zespół Opieki Zdrowotnej w Krasnymstawie",
+      "powiat": "krasnostawski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-300 Krasnystaw, ul. Sobieskiego 4",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/96cJhD6d4SD2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": -1,
+          "uwagi": "oddział zlokalizowany przy ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": "oddział zlokalizowany na ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": "oddział zlokalizowany na ul.  Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 0,
+          "uwagi": "oddział zlokalizowany na ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": -1,
+          "uwagi": "Oddział zlokalizowany przy ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 13,
+          "uwagi": "oddział zlokalizowany przy ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 45,
+          "wolne_miejsca": 0,
+          "uwagi": "Z uwagi na prace remontowe na Oddziale chorób wewnętrznych czasowe zmniejszenie liczby miejsc z57 do 45.",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": "UWAGA!!! Na czas prowadzonych prac remontowych oraz dostosowawczych, zmniejszenie liczby miejsc w Oddziale Chorób Płuc. Ponadto zmiana lokalizacji Oddziału",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "REUMATOLOGICZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 15,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 11,
+          "uwagi": "oddział zlokalizowany przy ul. Głowackiego 3",
+          "data_aktualizacji": "2026-04-11 08:42:03"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Kraśniku",
+      "powiat": "kraśnicki",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "23-200 Kraśnik , ul. Chopina 13",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/14eZL3a9kPQ2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 13,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 3,
+          "uwagi": "Liczba łóżek dla noworodków - 4\r\nLiczba inkubatorów - 2",
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 45,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": -1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:58"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny zakład Opieki Zdrowotnej w Lubartowie",
+      "powiat": "lubartowski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-100 Lubartów, ul. Cicha 14",
+      "telefon": "81 854 64 50",
+      "link_mapa": "https://goo.gl/maps/iJACHM9AAHJ2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": -1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chirurgii urazowo- ortopedycznej",
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział neonatologiczny",
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chorób wewnętrznych",
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział pediatryczny",
+          "data_aktualizacji": "2026-04-11 14:21:34"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Łęcznej",
+      "powiat": "łęczyński",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-010 Łęczna, ul. Krasnystawska 52",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/XX9iie9G66s",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 38,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "CHIRURGII PLASTYCZNEJ",
+          "ilosc_miejsc": 54,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 31,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "GERIATRYCZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:21:04"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Łukowie",
+      "powiat": "łukowski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-400 Łuków, ul. Doktora A. Rogalińskiego 3",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/WB49fQCnjfo",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:04:59"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": -2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:03:21"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": -11,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 08:56:47"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:13:27"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:13:27"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 5,
+          "uwagi": "łóżka intensywnej terapii noworodka - 2  szt. \r\nłóżka opieki ciągłej dla noworodków po sztucznej wentylacji - 6 szt.\r\nłóżka opieki pośredniej dla noworodków niewymagających wsparcia oddechowego - 2 szt.",
+          "data_aktualizacji": "2026-04-11 14:02:20"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 12,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-09 08:31:57"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:20:33"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:09:05"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 58,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:28:19"
+        },
+        {
+          "oddzial": "REUMATOLOGICZNE",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:05:38"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:33:30"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 90,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Psychiatryczny - 45 łóżekOddział Psychiatryczny z Ośrodkiem Interwencji\r\nKryzysowych i Psycho-Geriatrią - 45 łóżek",
+          "data_aktualizacji": "2026-04-11 14:22:40"
+        },
+        {
+          "oddzial": "ZESPOŁY ABSTYNENCYJNE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:05:45"
+        },
+        {
+          "oddzial": "CAŁODOBOWY ODDZIAŁ LECZENIA UZALEŻNIEŃ",
+          "ilosc_miejsc": 42,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 16:18:08"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 15:39:29"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:04:59"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Parczewie",
+      "powiat": "parczewski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-200 Parczew, ul. Kościelna 136",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/UBUzFhTCFzA2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 12,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 70,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział Chorób Wewnętrznych",
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "GERIATRYCZNE",
+          "ilosc_miejsc": 38,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział Psychiatryczny - 40 łóżek,",
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "CAŁODOBOWY ODDZIAŁ LECZENIA UZALEŻNIEŃ",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Leczenia Uzależnień",
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 09:04:29"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Puławach",
+      "powiat": "puławski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "24-100 Puławy, ul. Bema 1",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/k2Gs2wvsAZK2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział urologii i onkologii urologicznej",
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": -3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": -2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": -1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": -6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "REUMATOLOGICZNE",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 0,
+          "uwagi": "Pododdział reumatologiczny",
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHIRURGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 16,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA  DZIECI",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:38:08"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Radzyniu Podlaskim",
+      "powiat": "radzyński",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-300 Radzyń Podlaski, ul. Wisznicka 111",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/T2x8Z2XST6r",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział ginekologiczno-położniczy z traktem porodowymUWAGA!!!Czasowe zaprzestanie działalności leczniczej w okresie od 1 maja 2024 r. do 31 października 2024 r.",
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": -1,
+          "uwagi": "Pododdział udarowy oddziału neurologicznego",
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 48,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "REUMATOLOGICZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": -1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": -1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "CAŁODOBOWY ODDZIAŁ LECZENIA UZALEŻNIEŃ",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 9,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:04:48"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zespół Opieki Zdrowotnej Tomaszów Lubelski",
+      "powiat": "tomaszowski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-600 Tomaszów Lubelski, al. Grunwaldzkie 1",
+      "telefon": null,
+      "link_mapa": null,
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 2,
+          "uwagi": "Szpitalny Oddział Ratunkowy",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Anestezjologii i Intensywnej Terapii",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 8,
+          "uwagi": "Oddział Chirurgii Ogólnej i Urazowej",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział Noworodkowy",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 10,
+          "uwagi": "Oddział Ginekologiczno-Położniczy",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Wewnętrzny - Neurologia i Leczenie Padaczek",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 60,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział internistyczno-kardiologiczny -  ogółem 37 łóżek, w tym intensywnej terapii 4 miejscaOddział wewnętrzny z profilem geriatrycznym - 23 łóżka.",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Wewnętrzny - Chorób Płuc i Gruźlicy",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Obserwacyjno-Zakaźny dla Dorosłych",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział wewnętrzny dziecięcy, w tym:\r\n# 2 łóżka intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 15:36:56"
+        }
+      ]
+    },
+    {
+      "szpital": "Wojewódzki Szpital Specjalistyczny w Białej Podlaskiej",
+      "powiat": "Biała Podlaska",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "21-500 Biała Podlaska, ul. Terebelska 57/65",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/6UyV6qV11nu",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": -7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 8,
+          "uwagi": "Oddział Neurochirurgiczny",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 33,
+          "wolne_miejsca": 12,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": -6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 9,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 3,
+          "uwagi": "UWAGA!!!Od 1 lipca 2024 r. do odwołania czasowe zaprzestanie wykonywania działalności  leczniczej w Pododdziale Chirurgii Naczyniowej.",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 16,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 17,
+          "uwagi": "Oddział rehabilitacji 4300 - 18 miejsc;",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 3,
+          "wolne_miejsca": 4,
+          "uwagi": "Oddział rehabilitacji neurologicznej - 3 miejsc",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "REHABILITACJI PULMONOLOGICZNEJ",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 23,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 57,
+          "wolne_miejsca": 50,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 58,
+          "wolne_miejsca": 16,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 7,
+          "uwagi": "Pododdział Rehabilitacji Kardiologicznej",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": -3,
+          "uwagi": "Oddział Ftyzjopulmonologii i Onkologii Pulmonologicznej\r\n4270 -25 miejsca",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "HEMATOLOGICZNE",
+          "ilosc_miejsc": 43,
+          "wolne_miejsca": 12,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział obserwacyjno-zakaźny 4348 - 24 miejsc",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 19,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 13,
+          "uwagi": "Pododdział Chirurgii Onkologicznej",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "GERIATRYCZNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chorób wewnętrznych i geriatrii",
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:39:42"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Wojewódzki Szpital Specjalistyczny w Chełmie",
+      "powiat": "Chełm",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "22-100 Chełm, ul. Szpitalna 53",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/dpdjv6xQEBF2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 37,
+          "wolne_miejsca": 13,
+          "uwagi": "Oddział Urazowo-Ortopedyczny z Chirurgią Kręgosłupa",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 38,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Laryngologiczny z Pododdziałem Okulistycznym",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 36,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Neonatologii z Pododdziałem Intensywnej Terapii i Patologii Noworodka\r\nLiczba łóżek: 20, w tym 8 łóżek dla noworodków, 6 inkubatorów, 2 łóżka intensywnej terapii noworodka, 2 łóżka opieki ciągłej dla noworodków po sztucznej wentylacji, 2 łóżka opieki pośredniej dla noworodków.",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział Położniczo-Ginekologiczny i Patologii Ciąży",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": -2,
+          "uwagi": "20, w tym 1",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": -3,
+          "uwagi": "16, w tym:\r\n1 - IOM",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 56,
+          "wolne_miejsca": 8,
+          "uwagi": "Oddział Wewnętrzny I z Pododdziałem Endokrynologicznym i Hematologicznym",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Pulmonologiczny",
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "DERMATOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 75,
+          "wolne_miejsca": 11,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "ZESPOŁY ABSTYNENCYJNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:30:17"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Szpital Wojewódzki im. Papieża Jana Pawła II w Zamościu",
+      "powiat": "Zamość",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "22-400 Zamość, al. Jana Pawła II 10",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/6XNzdx7a5eS2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": -17,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "KARDIOCHIRURGICZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 9,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 15,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": -1,
+          "uwagi": "w tym liczba łóżek intensywnej opieki medycznej: 1",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 10,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 13,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 25,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 45,
+          "wolne_miejsca": 24,
+          "uwagi": "Oddział Ginekologiczno-Położniczy i Patologii CiążyLiczba łóżek intensywnej opieki medycznej: 2Liczba inkubatorów: 2",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 63,
+          "wolne_miejsca": -7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 15,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 3,
+          "uwagi": "20 łózek, w tym 2 łózka intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "NEFROLOGICZNE",
+          "ilosc_miejsc": 39,
+          "wolne_miejsca": -6,
+          "uwagi": "Oddział nefrologii, endokrynologii, nadciśnienia tętniczego i chorób wewnętrznych",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 33,
+          "wolne_miejsca": -18,
+          "uwagi": "Oddział onkologii klinicznej - kod 4240",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 33,
+          "wolne_miejsca": -14,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 7,
+          "uwagi": "w tym:\r\n# 1 łóżko intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:16:12"
+        }
+      ]
+    },
+    {
+      "szpital": "Wojewódzki Szpital Specjalistyczny im. Stefana Kardynała Wyszyńskiego Samodzielny Publiczny Zakład Opieki Zdrowotnej (lokalizacja: Al. Kraśnicka)",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-718  Lublin, al. Kraśnicka 100",
+      "telefon": "81 537 45 00",
+      "link_mapa": "https://goo.gl/maps/Ba9z5umiSQ22",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Intensywnej Terapii i Anestezjologii",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "TOKSYKOLOGICZNE",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 0,
+          "uwagi": "Kliniczny Oddział Toksykologiczno-Kardiologiczny",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 33,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Urazowo-Ortopedyczny",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgii ogólnej",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Urologii i Onkologii Urologicznej z Centrum Leczenia Kamicy Układu Moczowego",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgii Naczyniowej",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 10,
+          "uwagi": "Oddział Otolaryngologiczny Chirurgii Głowy i Szyi",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Rehabilitacyjny",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": "Pododdział Rehabilitacji Neurologicznej",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 10,
+          "uwagi": "Oddział Neonatologii i Intensywnej Terapii Noworodkałóżka dla noworodków: 19inkubatory: 8",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 54,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Neonatologii, Patologii i Intensywnej Terapii Noworodka",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": -3,
+          "uwagi": "Oddział Kardiologii",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": "Pododdział Intensywnego Nadzoru Kardiologicznego",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": -12,
+          "uwagi": "Pododdział Rehabilitacji Kardiologicznej",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": "Pododdział Udarowy",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Neurologiczny",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 46,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chorób Wewnętrznych, Endokrynologii i Diabetologii",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "NEFROLOGICZNE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 4,
+          "uwagi": "Oddział Nefrologii i Nadciśnienia Tętniczego",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 10,
+          "uwagi": "Oddział Nefrologii i Nadciśnienia Tętniczego",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Piersi - 81 537 41 49",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "ALERGOLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Alergologii i Chorób Płuc",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział Gastroenterologii",
+          "data_aktualizacji": "2026-04-11 08:02:12"
+        }
+      ]
+    },
+    {
+      "szpital": "Uniwersytecki Szpital Kliniczny Nr 4 w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-090 Lublin, ul. Jaczewskiego 8",
+      "telefon": "81 72 44 551; 81 72 44 552",
+      "link_mapa": "https://goo.gl/maps/cau2WjZTM3Q2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": -18,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 19,
+          "wolne_miejsca": -18,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 1,
+          "uwagi": "Kliniczny Oddział Anestezjologii i Intensywnej Terapii -21 łóżekKliniczny Oddział Intensywnej Terapii Kardiochirurgicznej -5 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 1,
+          "uwagi": "Kliniczny Oddział Anestezjologii i Intensywnej Terapii -21 łóżekKliniczny Oddział Intensywnej Terapii Kardiochirurgicznej -5 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "KARDIOCHIRURGICZNE",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 8,
+          "uwagi": "Kliniczny Oddział Kardiochirurgii - 26 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 3,
+          "uwagi": "Kliniczny Oddział Neurochirurgii i Neurochirurgii Dziecięcej",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 3,
+          "uwagi": "Kliniczny Oddział Neurochirurgii i Neurochirurgii Dziecięcej",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 54,
+          "wolne_miejsca": 16,
+          "uwagi": "Kliniczny Oddział Ortopedii i Traumatologii -54 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 54,
+          "wolne_miejsca": 16,
+          "uwagi": "Kliniczny Oddział Ortopedii i Traumatologii -54 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGII KLATKI PIERSIOWEJ",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": -4,
+          "uwagi": "Kliniczny Oddział Chirurgii Klatki Piersiowej",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": -6,
+          "uwagi": "Kliniczny Oddział Chirurgii Ogólnej i Leczenia Żywieniowego",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": -6,
+          "uwagi": "Kliniczny Oddział Chirurgii Ogólnej i Leczenia Żywieniowego",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "TRANSPLANTOLOGIA",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 7,
+          "uwagi": "Kliniczny Oddział Transplantologii",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 8,
+          "uwagi": "Kliniczny Oddział Urologii i Onkologii Urologicznej - 28 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 8,
+          "uwagi": "Kliniczny Oddział Urologii i Onkologii Urologicznej - 28 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": -2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": -2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 12,
+          "uwagi": "Kliniczny Oddział Otorynolaryngologii, Onkologii Laryngologicznej, Audiologii i Foniatrii - 26 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 12,
+          "uwagi": "Kliniczny Oddział Otorynolaryngologii, Onkologii Laryngologicznej, Audiologii i Foniatrii - 26 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "CHIRURGIA OGÓLNA, PLASTYCZNA, REKONSTRUKCYJNA I MIKROCHIRURGIA",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 1,
+          "uwagi": "Kliniczny Oddział Chirurgii Ogólnej, Plastycznej, Rekonstrukcyjnej i Mikrochirurgii",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": -1,
+          "uwagi": "Kliniczny Oddział Rehabilitacji - 7 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": -1,
+          "uwagi": "Kliniczny Oddział Rehabilitacji - 7 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 1,
+          "uwagi": "Kliniczny Oddział Rehabilitacji Neurologicznej - 17\r\nKliniczny Oddział Rehabilitacji Neurologicznej II - 4",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 1,
+          "uwagi": "Kliniczny Oddział Rehabilitacji Neurologicznej - 17\r\nKliniczny Oddział Rehabilitacji Neurologicznej II - 4",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 47,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Neonatologii i Intensywnej Terapii Noworodka - 47 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 47,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Neonatologii i Intensywnej Terapii Noworodka - 47 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 76,
+          "wolne_miejsca": 12,
+          "uwagi": "Kliniczny Oddział Ginekologii i Położnictwa - 22 miejscaKliniczny Oddział Położnictwa, Perinatologii i Chorób Kobiecych - 54 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 76,
+          "wolne_miejsca": 12,
+          "uwagi": "Kliniczny Oddział Ginekologii i Położnictwa - 22 miejscaKliniczny Oddział Położnictwa, Perinatologii i Chorób Kobiecych - 54 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 4,
+          "uwagi": "Kliniczny Oddział Ginekologii Operacyjnej i Onkologii Ginekologicznej - 22 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 4,
+          "uwagi": "Kliniczny Oddział Ginekologii Operacyjnej i Onkologii Ginekologicznej - 22 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 3,
+          "uwagi": "Kliniczny Oddział Kardiologii i Rehabilitacji Kardiologicznej z Pododdziałem Intensywnej Opieki Kardiologicznej (VIII kod resortowy 4100) - 18 łózek.Kliniczny Oddział Kardiologii Inwazyjnej 16 łóżek,Kliniczny Oddział Elektrokardiologii (VIII kod 4100)  16 łóżek.",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 3,
+          "uwagi": "Kliniczny Oddział Kardiologii i Rehabilitacji Kardiologicznej z Pododdziałem Intensywnej Opieki Kardiologicznej (VIII kod resortowy 4100) - 18 łózek.Kliniczny Oddział Kardiologii Inwazyjnej 16 łóżek,Kliniczny Oddział Elektrokardiologii (VIII kod 4100)  16 łóżek.",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 2,
+          "uwagi": "Pododdział Intensywnej Opieki Kardiologicznej z Ośrodkiem Umiarowień (VIII kod 4106) dysponuje 22 łóżkami",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 2,
+          "uwagi": "Pododdział Intensywnej Opieki Kardiologicznej z Ośrodkiem Umiarowień (VIII kod 4106) dysponuje 22 łóżkami",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "Kliniczny Oddział Kardiologii, Rehabilitacji Kardiologicznej, Chorób Wewnętrznych z Pododdziałem Intensywnej Opieki Kardiologicznej - 5 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "Kliniczny Oddział Kardiologii, Rehabilitacji Kardiologicznej, Chorób Wewnętrznych z Pododdziałem Intensywnej Opieki Kardiologicznej - 5 łóżek",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 4,
+          "uwagi": "Kliniczny Oddział Udarowy i Wczesnej Rehabilitacji Poudarowej - 24 łóżka\r\n6  łóżek intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 4,
+          "uwagi": "Kliniczny Oddział Udarowy i Wczesnej Rehabilitacji Poudarowej - 24 łóżka\r\n6  łóżek intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 0,
+          "uwagi": "Liczba łóżek ogółem \t24\r\nLiczba łóżek intensywnej opieki medycznej \t3",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 0,
+          "uwagi": "Liczba łóżek ogółem \t24\r\nLiczba łóżek intensywnej opieki medycznej \t3",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": -5,
+          "uwagi": "Kliniczny Oddział Endokrynologii, Diabetologii i Chorób Wewnętrznych - 22 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": -5,
+          "uwagi": "Kliniczny Oddział Endokrynologii, Diabetologii i Chorób Wewnętrznych - 22 miejsca",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 44,
+          "wolne_miejsca": -15,
+          "uwagi": "Kliniczny Oddział Pneumonologii, Alergologii, Onkologii Pulmunologicznej i Chorób Wewnętrznych - 44 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 44,
+          "wolne_miejsca": -15,
+          "uwagi": "Kliniczny Oddział Pneumonologii, Alergologii, Onkologii Pulmunologicznej i Chorób Wewnętrznych - 44 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEFROLOGICZNE",
+          "ilosc_miejsc": 29,
+          "wolne_miejsca": -9,
+          "uwagi": "Kliniczny Oddział Nefrologii, Transplantologii i Chorób Wewnętrznych - 29 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "NEFROLOGICZNE",
+          "ilosc_miejsc": 29,
+          "wolne_miejsca": -9,
+          "uwagi": "Kliniczny Oddział Nefrologii, Transplantologii i Chorób Wewnętrznych - 29 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "REUMATOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": -6,
+          "uwagi": "Kliniczny Oddział Reumatologii, Układowych Chorób Tkanki Łącznej i Chorób Wewnętrznych",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": -5,
+          "uwagi": "Kliniczny Oddział Gastroenterologii, Hepatologii i Chorób Wewnętrznych - 27 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": -5,
+          "uwagi": "Kliniczny Oddział Gastroenterologii, Hepatologii i Chorób Wewnętrznych - 27 miejsc",
+          "data_aktualizacji": "2026-04-11 14:09:29"
+        }
+      ]
+    },
+    {
+      "szpital": "Uniwersytecki Szpital Dziecięcy w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-093  Lublin, ul.  prof. A. Gębali 6",
+      "telefon": "81 7185323, 81 7413492",
+      "link_mapa": null,
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 2,
+          "uwagi": "w tym: 1 inkubator",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 2,
+          "uwagi": "w tym: 1 inkubator",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Patologii Noworodków, w tym: \r\n15 inkubatorów",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Patologii Noworodków, w tym: \r\n15 inkubatorów",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Ginekologii Dziecięcej i Dziewczęcej",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Ginekologii Dziecięcej i Dziewczęcej",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Pediatrii, Endokrynologii i Diabetologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Pediatrii, Endokrynologii i Diabetologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "OIT DZIECIĘCE",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 6,
+          "uwagi": "w tym: \r\n# 16 inkubatorów\r\n# 10 łóżek intensywnej terapii\r\n# 7 łóżek intensywnej terapii noworodka",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "CHIRURGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgii i Traumatologii Dziecięcej, w tym: \r\nłóżek intensywnej opieki medycznej - 3\r\ninkubatorów - 1\r\nłóżek intensywnej opieki oparzeń - 2",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "URAZOWO-ORTOPEDYCZNE DZIECIĘCE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 25,
+          "uwagi": "I Oddział ortopedii dziecięcej - 16 łóżek\r\n81 7185570, 81 7415653\r\nortopedia@uszd.lublin.pl\r\n\r\nII Oddział ortopedii dziecięcej - 16 łóżek\r\n81 7185551\r\nortopedia2@uszd.lublin.pl",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "ONKOLOGIA I HEMATOLOGIA DZIECIĘCA",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział Hematologii, Onkologii i Transplantologii Dziecięcej",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 15,
+          "uwagi": "Oddział Otolaryngologii Dziecięcej, Foniatrii i Audiologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "REHABILITACYJNE DZIECIĘCE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Rehabilitacji Dziecięcej",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "REHABILITACJA NEUROLOGICZNA DLA DZIECI",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 12,
+          "uwagi": "Oddział Neurologicznej Rehabilitacji Dziecięcej",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 49,
+          "wolne_miejsca": 2,
+          "uwagi": "1/ Oddział Pediatrii Chorób Płuc i Reumatologii - 24 łóżka81 7185477, 81 7430141\r\npulmonologia@uszd.lublin.pl2/ Oddział Patologii Niemowląt i Pediatrii - 25 łóżek81 7185371, 81 7430100\r\nkpnn@uszd.lublin.pl",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Kardiologii Dziecięcej, w tym:\r\n2 inkubatory",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 19,
+          "uwagi": "Oddział Neurologii Dziecięcej, w tym:\r\n1 łóżko IOM",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "NEFROLOGICZNE DZIECIĘCE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział Pediatrii i Nefrologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "GASTROLOGICZNE I GASTROENTEROLOGICZNE  DZIECIĘCE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 12,
+          "uwagi": "Oddział Pediatrii i Gastroenterologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        },
+        {
+          "oddzial": "ALERGOLOGICZNE DLA DZIECI",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Pediatrii i Alergologii",
+          "data_aktualizacji": "2026-04-11 14:08:59"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej Ministerstwa Spraw Wewnętrznych i Administracji w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-331 Lublin, ul. Grenadierów 3",
+      "telefon": "81 728 45 25",
+      "link_mapa": "https://goo.gl/maps/9S5FA7YajCQ2",
+      "oddzialy": [
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 3,
+          "uwagi": "Szpitalny Oddział Ratunkowy z Izbą Przyjęć",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 3,
+          "uwagi": "Szpitalny Oddział Ratunkowy z Izbą Przyjęć",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "Szpitalny Oddział Ratunkowy",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 3,
+          "uwagi": "Szpitalny Oddział Ratunkowy z Izbą Przyjęć",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Ogólnej z Pododdziałem Urazowo-Ortopedycznym i Pododdziałem Urologicznym",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Ogólnej z Pododdziałem Urazowo-Ortopedycznym i Pododdziałem Urologicznym",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Ogólnej z Pododdziałem Urazowo-Ortopedycznym i Pododdziałem Urologicznym",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Chorób Wewnętrznych z Pododdziałem Diabetologii",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Chorób Wewnętrznych z Pododdziałem Diabetologii",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Chorób Wewnętrznych z Pododdziałem Diabetologii",
+          "data_aktualizacji": "2026-04-11 08:02:42"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zespół Opieki Zdrowotnej w Hrubieszowie",
+      "powiat": "hrubieszowski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-500 Hrubieszów, ul. Piłsudskiego 11",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/xeXp9AWB32r",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział chirurgii urazowo - ortopedycznej",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chirurgii ogólnej i urazowo-ortopedycznej",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 43,
+          "wolne_miejsca": 24,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 1,
+          "uwagi": "Pododdział wczesnej rehabilitacji neurologicznej",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 1,
+          "uwagi": "oddział noworodkowy",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 11,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 85,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział wewnętrzny I - 64 miejsca;\r\nOddział wewnętrzny II - 21 miejsc.",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 31,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Pulmonologii",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "CAŁODOBOWY ODDZIAŁ LECZENIA UZALEŻNIEŃ",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 8,
+          "uwagi": "Oddział leczenia uzależnień",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział dziecięcy",
+          "data_aktualizacji": "2026-04-11 14:01:53"
+        }
+      ]
+    },
+    {
+      "szpital": "6 Szpital Wojskowy z Przychodnią SPZOZ w Dęblinie",
+      "powiat": "rycki",
+      "kategoria_szpitala": "Szpitale resortowe",
+      "adres": "08-530 Dęblin, ul. Szpitalna",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/8j5sbqmRfLQ2",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 3,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 1,
+          "uwagi": "na czas remontu - II etap - zmniejszona liczba łóżek",
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 28,
+          "wolne_miejsca": 1,
+          "uwagi": "na czas remontu - II etap - zmniejszona liczba łóżek",
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 1,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:06:58"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Świdniku",
+      "powiat": "świdnicki",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-040 Świdnik, ul. B. Leśmiana 4",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/smyBdXeh6KS2",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 17:12:28"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:36:49"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-05 11:30:28"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 11,
+          "uwagi": null,
+          "data_aktualizacji": "2026-03-29 16:21:59"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 48,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:12:00"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:14:55"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:36:49"
+        }
+      ]
+    },
+    {
+      "szpital": "Centrum Onkologii Ziemi Lubelskiej im. św. Jana z Dukli",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-090 Lublin, ul. Jaczewskiego 7",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/WhzrkrEJeY42",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 6,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział OtorynolaryngologicznyLiczba łózek ogółem:25, w tym4intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "CHIRURGII PLASTYCZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 5,
+          "uwagi": "Liczba łózek ogółem: 17, w tym 2 intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Kardiologii Onkologicznej",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "HEMATOLOGICZNE",
+          "ilosc_miejsc": 36,
+          "wolne_miejsca": 0,
+          "uwagi": "Łączna liczba łóżek:36Oddział Hematologiczny:20 łóżekOddział Hematologii i Transplantacji Szpiku:16 łóżek",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 101,
+          "wolne_miejsca": 0,
+          "uwagi": "I Oddział Onkologii Klinicznej z Chemioterapią Dzienną\r\n- liczba miejsc 542 II Oddział Onkologii Klinicznej z Chemioterapią Dzienną - liczba miejsc 47",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 61,
+          "wolne_miejsca": 10,
+          "uwagi": "Łącza liczba łóżek -61, w tym:I Oddział Chirurgii Onkologicznej z pododdziałem Żywienia Klinicznego-30 łóżekII Oddział Chirurgii Onkologicznej z Pododdziałem Chirurgii Małoinwazyjnej -31 łóżek",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "GINEKOLOGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 54,
+          "wolne_miejsca": 10,
+          "uwagi": "Łączna ilość łóżek:54I Oddział Ginekologii Onkologicznej z Pododdziałem Brachyterapii -33 łóżekII Oddział Ginekologii Onkologicznej -21 łóżek",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "RADIOTERAPII",
+          "ilosc_miejsc": 65,
+          "wolne_miejsca": 0,
+          "uwagi": "Łączna ilość łóżek:54I oddział radioterapii -35 łóżekII oddział radioterapii -30 łóżek",
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-10 20:38:40"
+        }
+      ]
+    },
+    {
+      "szpital": "Wojewódzki Szpital Specjalistyczny im. Stefana Kardynała Wyszyńskiego Samodzielny Publiczny Zakład Opieki Zdrowotnej (lokalizacje: Biernackiego, Lubartowska, Herberta)",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-089 Lublin, ul. Biernackiego 9",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/5SSYS5PBsxy",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Anestezjologii i Intensywnej TerapiiLokalizacja przy ul. Herberta 21",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Urazowo-OrtopedycznyLokalizacja przy ul. Herberta 21",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii ogólnejLokalizacja: ul. Herberta 21",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 28,
+          "uwagi": "Oddział Noworodków i WcześniakówLokalizacja: ul. Lubartowskiej 81",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 26,
+          "uwagi": "Oddział Położniczy z Oddziałem Patologii CiążyLokalizacja: ul. Lubartowska 81",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 4,
+          "uwagi": "Oddział Ginekologii i Ginekologii OnkologicznejLokalizacja ul. Lubartowska 81",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział InternistycznyLokalizacja przy ul. Herberta 21",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 76,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddziały zlokalizowane przy ul. Herberta 21 (dawniej ul. L. Kruczkowskiego)Oddział Chorób Płuc nr 1: 38 miejscOddział Chorób Płuc i Gruźlicy Nr 2: 38 miejscCelem wcześniejszej weryfikacji wolnych miejsc na powyższych oddziałach proszę o kontakt z punktem pielęgniarskim izby przyjęć pod numerem:  81 760-41-21",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział Chorób Zakaźnych dla DorosłychLokalizacja: ul. Biernackiego 9",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "GERIATRYCZNE",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział GeriatrycznyLokalizacja: ul. Biernackiego 9",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział Medycyny PaliatywnejLokalizacja: ul. Biernackiego 9",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA  DZIECI",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Medycyny PaliatywnejLokalizacja: Biernackiego 9",
+          "data_aktualizacji": "2026-04-11 08:16:16"
+        }
+      ]
+    },
+    {
+      "szpital": "Uniwersytecki Szpital Kliniczny nr 1 w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-081 Lublin, ul. Staszica 16",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/TR7HWovKi1k",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Anestezjologii i Intensywnej Terapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Anestezjologii i Intensywnej Terapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgii Ogólnej, Gastroenterologicznej i Nowotworów Układu Pokarmowego",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgii Ogólnej, Gastroenterologicznej i Nowotworów Układu Pokarmowego",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 29,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Naczyniowej i Angiologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII NACZYŃ",
+          "ilosc_miejsc": 29,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chirurgii Naczyniowej i Angiologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 47,
+          "wolne_miejsca": 35,
+          "uwagi": "Oddział zlokalizowany na ul. Chmielnej 1",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII SZCZĘKOWO-TWARZOWEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 7,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "POŁOŻNICZE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": -8,
+          "uwagi": "Oddział Położnictwa i Patologii Ciąży",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Noworodków",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Noworodków",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział chorób Wewnętrznych, Intensywnego Nadzoru Kardiologicznego, Diabetologii, Endokrynologii i Geriatrii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział chorób Wewnętrznych, Intensywnego Nadzoru Kardiologicznego, Diabetologii, Endokrynologii i Geriatrii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "HEMATOLOGICZNE",
+          "ilosc_miejsc": 46,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Hematoonkologii, Transplantacji Szpiku i Chemioterapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "HEMATOLOGICZNE",
+          "ilosc_miejsc": 46,
+          "wolne_miejsca": 7,
+          "uwagi": "Oddział Hematoonkologii, Transplantacji Szpiku i Chemioterapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "DERMATOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Dermatoonkologii i Wenerologii zlokalizowany przy ul. Radziwiłowskiej 13",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Chorób Zakaźnych i Hepatologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Chorób Zakaźnych i Hepatologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": -6,
+          "uwagi": "Oddział Onkologii Klinicznej i Chemioterapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "ONKOLOGII KLINICZNEJ/CHEMIOTERAPII",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": -6,
+          "uwagi": "Oddział Onkologii Klinicznej i Chemioterapii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział Chirurgii Onkologicznejw tym 4 miejsca intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 24,
+          "wolne_miejsca": 6,
+          "uwagi": "Oddział Chirurgii Onkologicznejw tym 4 miejsca intensywnej opieki medycznej",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "GINEKOLOGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 15,
+          "uwagi": "Oddział Ginekologii Onkologicznej i Ginekologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "GINEKOLOGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 21,
+          "wolne_miejsca": 15,
+          "uwagi": "Oddział Ginekologii Onkologicznej i Ginekologii",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "RADIOTERAPII",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "RADIOTERAPII",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 53,
+          "wolne_miejsca": -6,
+          "uwagi": "Oddział zlokalizowany przy ul. Głuskiej 1Łączna liczba łóżek:53Oddział Ogólnopsychiatryczny I:12 łóżekOddział Ogólnopsychiatryczny II:41 łóżek",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 53,
+          "wolne_miejsca": -6,
+          "uwagi": "Oddział zlokalizowany przy ul. Głuskiej 1Łączna liczba łóżek:53Oddział Ogólnopsychiatryczny I:12 łóżekOddział Ogólnopsychiatryczny II:41 łóżek",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "OKULISTYCZNE DZIECIĘCE",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddzial zlokalizowany przy ul. Chmielnej 1",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "DERMATOLOGICZNE  DZIECIĘCE",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział zlokalizowany przy ul. Radziwiłowskiej 13",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNE DLA DZIECI I MŁODZIEŻY",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": -8,
+          "uwagi": "Oddział zlokalizowany przy ul. Głuskiej 1",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNE DLA DZIECI I MŁODZIEŻY",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": -8,
+          "uwagi": "Oddział zlokalizowany przy ul. Głuskiej 1",
+          "data_aktualizacji": "2026-04-11 14:21:20"
+        }
+      ]
+    },
+    {
+      "szpital": "1 Wojskowy Szpital Kliniczny z Polikliniką SPZOZ w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-049 Lublin, al. Racławickie 23",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/QcyPFx3BGEJ2",
+      "oddzialy": [
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OIT DOROŚLI",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROCHIRURGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UROLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OTOLARYNGOLOGICZNE",
+          "ilosc_miejsc": 6,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "OKULISTYCZNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 5,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 4,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "UDAROWE",
+          "ilosc_miejsc": 16,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 1,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 23,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "DERMATOLOGICZNE",
+          "ilosc_miejsc": 1,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2024-02-14 22:53:07"
+        },
+        {
+          "oddzial": "DERMATOLOGICZNE",
+          "ilosc_miejsc": 1,
+          "wolne_miejsca": 0,
+          "uwagi": "liczba miejsc w okresie od dnia 31 marca do 30 czerwca 2023 r., zgodnie z pismem z dnia 31 marca 2023 r. znak: 479/23",
+          "data_aktualizacji": "2024-02-14 22:53:07"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "CHIRURGII ONKOLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        },
+        {
+          "oddzial": "GASTROENTEROLOGICZNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:10:49"
+        }
+      ]
+    },
+    {
+      "szpital": "Arion Szpitale sp. z o.o. w restrukturyzacji - Zespół Opieki Zdrowotnej w Biłgoraju",
+      "powiat": "biłgorajski",
+      "kategoria_szpitala": "Szpitale niepubliczne",
+      "adres": "23-400 Biłgoraj, ul. Dr. Pojaska 5",
+      "telefon": null,
+      "link_mapa": null,
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 8,
+          "uwagi": "Oddział Chirurgii Urazowo-Ortopedycznej",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział Chirurgii Ogólnej",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział Rehabilitacyjny w Biłgoraju -12 łóżek,Oddział Rehabilitacyjny w Tarnogrodzie -10 łóżek.Proszę o wcześniejszy kontakt ws. dostępności miejsc na poszczególnych oddziałach.",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 8,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Rehabilitacji Neurologicznej",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 4,
+          "uwagi": "Oddział Neonatologiczny",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 27,
+          "wolne_miejsca": 14,
+          "uwagi": "Oddział Położniczo-Ginekologiczny",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział Kardiologiczny",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "NEUROLOGICZNE",
+          "ilosc_miejsc": 31,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Neurologiczny",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 3,
+          "uwagi": "Oddział Chorób Wewnętrznych",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 1,
+          "uwagi": "Oddział Chorób Płuc",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Obserwacyjno-Zakaźny",
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 9,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:35:26"
+        }
+      ]
+    },
+    {
+      "szpital": "Powiatowe Centrum Zdrowia spółka z ograniczoną odpowiedzialnością",
+      "powiat": "opolski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "24-300 Opole Lubelskie, ul. Przemysłowa  4A",
+      "telefon": null,
+      "link_mapa": null,
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 18,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:12:53"
+        },
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 32,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chirurgiczny z pododdziałem ginekologii operacyjnej oraz pododdziałem otolaryngologii i onkologii laryngologicznej",
+          "data_aktualizacji": "2026-04-11 14:12:53"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:12:53"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 44,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział chorób wewnętrznych z pododdziałem kardiologii",
+          "data_aktualizacji": "2026-04-11 14:12:53"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:12:53"
+        }
+      ]
+    },
+    {
+      "szpital": "Zamojski Szpital Niepubliczny sp. z o.o.",
+      "powiat": "Zamość",
+      "kategoria_szpitala": "Szpitale niepubliczne",
+      "adres": "22-400 Zamość, ul. Peowiaków 1",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/5y4i2yj5HFP2",
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGII URAZOWO-ORTOPEDYCZNEJ",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-09 15:15:04"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 49,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-09 15:15:04"
+        },
+        {
+          "oddzial": "HEMATOLOGICZNE",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-09 15:15:04"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-09 15:15:04"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Międzyrzecu Podlaskim",
+      "powiat": "bialski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "21-560 Międzyrzec Podlaski, ul. Warszawska 2/4",
+      "telefon": "(83) 3718 356",
+      "link_mapa": "https://goo.gl/maps/4XyP9NHDC9R2",
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 22,
+          "wolne_miejsca": 13,
+          "uwagi": "Oddział Chirurgii Ogólnej i Urazowej",
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 19,
+          "uwagi": "Oddział Rehabilitacji dla Dorosłych",
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 35,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Chorób Wewnętrznych z Pododdziałem Neurologicznym i Pododdziałem Reumatologicznym",
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": 4,
+          "uwagi": "Oddział Pediatryczny\r\nLiczba łóżek dla noworodków - 2\r\nLiczba inkubatorów - 1",
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 16:35:29"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej Nr 1 Bełżycach",
+      "powiat": "lubelski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "24-200 Bełżyce, ul. Przemysłowa 44",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/m37FokAJZnD2",
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział Chirurgiczny Ogólny z pododdziałem intensywnej opieki pooperacyjnej\r\n\r\nLiczba miejsc ogółem 14 w tym 1 intensywnej terapii",
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 7,
+          "wolne_miejsca": 5,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "NEONATOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 3,
+          "uwagi": "liczba łóżek dla noworodków - 8\r\nliczba inkubatorów - 2",
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNO - POŁOŻNICZE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 30,
+          "wolne_miejsca": 1,
+          "uwagi": "w tym6 miejscintensywnego nadzoru kardiologicznego",
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "PEDIATRYCZNE",
+          "ilosc_miejsc": 12,
+          "wolne_miejsca": 8,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:15:35"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zespół Opieki Zdrowotnej we Włodawie",
+      "powiat": "włodawski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-200 Włodawa , al. Józefa Piłsudskiego 64",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/GTGbsatGVX12",
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 9,
+          "uwagi": "Oddział chirurgii ogólnej z pododdziałem urazowo-ortopedycznym",
+          "data_aktualizacji": "2026-04-11 14:03:13"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:03:13"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 42,
+          "wolne_miejsca": 4,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:03:13"
+        },
+        {
+          "oddzial": "GERIATRYCZNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:03:13"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 3,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:03:13"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zespół Opieki Zdrowotnej w Szczebrzeszynie",
+      "powiat": "zamojski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-460 Szczebrzesz, ul. dr. Zygmunta Klukowskiego 3",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/m2tUbu2LgkH2",
+      "oddzialy": [
+        {
+          "oddzial": "CHIRURGICZNE OGÓLNE",
+          "ilosc_miejsc": 13,
+          "wolne_miejsca": 10,
+          "uwagi": "UWAGA!!!Czasowe zaprzestanie działalności leczniczej w okresie od 02.08 do 15.08.2023",
+          "data_aktualizacji": "2026-04-11 14:29:38"
+        },
+        {
+          "oddzial": "GINEKOLOGICZNE",
+          "ilosc_miejsc": 9,
+          "wolne_miejsca": "-",
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:29:38"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 26,
+          "wolne_miejsca": -3,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:29:38"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 1,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:29:38"
+        }
+      ]
+    },
+    {
+      "szpital": "Szpital Neuropsychiatryczny im. prof. Mieczysława Kaczyńskiego Samodzielny Publiczny Zakład Opieki Zdrowotnej w Lublinie",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-442 Lublin , ul. Abramowicka 2",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/aJcBom8a45T2",
+      "oddzialy": [
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 11,
+          "wolne_miejsca": 0,
+          "uwagi": "Pododdział rehabilitacji ogólnoustrojowej 4300 - 11 łóżek",
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 17,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 33,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Psychosomatyczny (kod 4710) - 33 łóżka,w tym 3 łóżka IOM",
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 292,
+          "wolne_miejsca": 5,
+          "uwagi": "Oddział psychiatryczny ogólny IV - 73;\r\nOddział psychiatryczny ogólny  V - 78;\r\nOddział psychiatryczny ogólny VI - 72;\r\nOddział psychiatryczny ogólny VII - 73;",
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "PSYCHOGERIATRYCZNY",
+          "ilosc_miejsc": 34,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "REHABILITACJI PSYCHIATRYCZNEJ",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "ZESPOŁY ABSTYNENCYJNE",
+          "ilosc_miejsc": 110,
+          "wolne_miejsca": 2,
+          "uwagi": "Oddział leczenia alkoholowych zespołów abstynencji 4742 - 40 miejsc;Całodobowy oddział terapii uzależnienia od alkoholu 4744 - 50 miejsc;Oddział detoksykacyjny dla narkomanów 4748 - 20 miejsc",
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        },
+        {
+          "oddzial": "PSYCHIATRYCZNE DLA DZIECI I MŁODZIEŻY",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": -15,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:15:34"
+        }
+      ]
+    },
+    {
+      "szpital": "Instytut Medycyny Wsi",
+      "powiat": "Lublin",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": "20-090 Lublin, ul. Jaczewskiego 2",
+      "telefon": "81 71 84 594",
+      "link_mapa": "https://goo.gl/maps/shMPDmrfyY12",
+      "oddzialy": [
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "REHABILITACYJNE",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "REHABILITACJI NEUROLOGICZNEJ",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "Klinika Chorób Wewnętrznych z Pododdziałem Chorób Zawodowych i Pododdziałem Szybkiej Diagnostyki",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "Klinika Chorób Wewnętrznych z Pododdziałem Chorób Zawodowych i Pododdziałem Szybkiej Diagnostyki",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "DIABETOLOGICZNE",
+          "ilosc_miejsc": 15,
+          "wolne_miejsca": 0,
+          "uwagi": "Klinika Diabetologii",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Endokrynologii",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "ENDOKRYNOLOGICZNE",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział Endokrynologii",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "Klinika Leczenia Chorób Zakaźnych",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "CHORÓB ZAKAŹNYCH DLA DOROSŁYCH",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "Klinika Leczenia Chorób Zakaźnych",
+          "data_aktualizacji": "2026-04-11 08:28:27"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": "Izba Przyjęć - 1 łóżko,Izba Przyjęć Kliniki Leczenia Chorób Zakaźnych - 1 łóżko,",
+          "data_aktualizacji": null
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": "Izba Przyjęć - 1 łóżko,Izba Przyjęć Kliniki Leczenia Chorób Zakaźnych - 1 łóżko,",
+          "data_aktualizacji": null
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": "Izba Przyjęć - 1 łóżko,Izba Przyjęć Kliniki Leczenia Chorób Zakaźnych - 1 łóżko,",
+          "data_aktualizacji": null
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 2,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": "Izba Przyjęć - 1 łóżko,Izba Przyjęć Kliniki Leczenia Chorób Zakaźnych - 1 łóżko,",
+          "data_aktualizacji": null
+        }
+      ]
+    },
+    {
+      "szpital": "Ośrodek Kardiologii Inwazyjnej IKARDIA Sp. z o.o.",
+      "powiat": "puławski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "24-140 Nałęczów, ul. Górskiego 9",
+      "telefon": "81 50-14-416",
+      "link_mapa": null,
+      "oddzialy": [
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 39,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:22:41"
+        },
+        {
+          "oddzial": "KARDIOLOGICZNE",
+          "ilosc_miejsc": 39,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:22:41"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:22:41"
+        },
+        {
+          "oddzial": "INTENSYWNEGO NADZORU KARDIOLOGICZNEGO",
+          "ilosc_miejsc": 10,
+          "wolne_miejsca": 1,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:22:41"
+        }
+      ]
+    },
+    {
+      "szpital": "Kolejowy Szpital Uzdrowiskowy w Nałęczowie SPZOZ",
+      "powiat": "puławski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "24-140 Nałęczów, ul. Górskiego 6",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/GhAsUw3HUDR2",
+      "oddzialy": [
+        {
+          "oddzial": "REHABILITACJI KARDIOLOGICZNEJ",
+          "ilosc_miejsc": 25,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": null,
+          "data_aktualizacji": null
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej w Bychawie",
+      "powiat": "lubelski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "23-100 Bychawa, ul. Piłsudskiego 28",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/eC4iQP5Q8Pv",
+      "oddzialy": [
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 50,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:08:20"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 3,
+          "wolne_miejsca": 2,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 14:08:20"
+        }
+      ]
+    },
+    {
+      "szpital": "Szpital Powiatowy w Rykach sp. z o.o.",
+      "powiat": "rycki",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "08-500 Ryki, ul. Żytnia 23",
+      "telefon": "533 327 064",
+      "link_mapa": "https://goo.gl/maps/tBaEGPv3DccnfZYS8",
+      "oddzialy": [
+        {
+          "oddzial": "CHORÓB WEWNĘTRZNYCH",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 16:43:27"
+        },
+        {
+          "oddzial": "MEDYCYNY PALIATYWNEJ",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 16:35:31"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Zakład Opieki Zdrowotnej Gruźlicy i Chorób Płuc w Adampolu",
+      "powiat": "włodawski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": null,
+      "telefon": "82 59 13 286",
+      "link_mapa": "https://goo.gl/maps/dbTacTwNXGK2",
+      "oddzialy": [
+        {
+          "oddzial": "GRUŹLICY I CHORÓB PŁUC",
+          "ilosc_miejsc": 56,
+          "wolne_miejsca": 34,
+          "uwagi": "Oddział Gruźlicy i Chorób Płuc",
+          "data_aktualizacji": "2026-04-11 14:51:51"
+        },
+        {
+          "oddzial": "DLA PRZEWLEKLE CHORYCH",
+          "ilosc_miejsc": 14,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": "Oddział dla przewlekle chorych - pulmonologia",
+          "data_aktualizacji": null
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": "Brak danych",
+          "uwagi": null,
+          "data_aktualizacji": null
+        }
+      ]
+    },
+    {
+      "szpital": "Wojewódzki Szpital dla Nerwowo i Psychicznie Chorych w Suchowoli",
+      "powiat": "radzyński",
+      "kategoria_szpitala": "Szpitale wojewódzkie",
+      "adres": null,
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/6UyV6qV11nu",
+      "oddzialy": [
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 76,
+          "wolne_miejsca": 1,
+          "uwagi": "I Oddział psychiatryczny ogólny  - 34 miejsca;\r\nIII Oddział psychiatryczny ogólny z pododdziałem terapii uzależnień od alkoholu - 42 miejsca;",
+          "data_aktualizacji": "2026-04-11 14:15:45"
+        },
+        {
+          "oddzial": "ZESPOŁY ABSTYNENCYJNE",
+          "ilosc_miejsc": 20,
+          "wolne_miejsca": 0,
+          "uwagi": "IV oddział terapii uzależnień od alkoholu 4744 - 20 miejsc",
+          "data_aktualizacji": "2026-04-11 14:15:45"
+        }
+      ]
+    },
+    {
+      "szpital": "Samodzielny Publiczny Wojewódzki Szpital Psychiatryczny w Radecznicy",
+      "powiat": "zamojski",
+      "kategoria_szpitala": "Szpitale powiatowe",
+      "adres": "22-463 Radecznica, ul. Klasztorna 4",
+      "telefon": null,
+      "link_mapa": "https://goo.gl/maps/sinyuc7N2dD2",
+      "oddzialy": [
+        {
+          "oddzial": "PSYCHIATRYCZNY (OGÓLNY)",
+          "ilosc_miejsc": 95,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział III psychiatryczny ogólny - męski - 48 łóżekOddział V psychiatryczny męski - męski - 47 łóżek",
+          "data_aktualizacji": "2026-04-11 16:46:12"
+        },
+        {
+          "oddzial": "PSYCHIATRIA ŻEŃSKA",
+          "ilosc_miejsc": 40,
+          "wolne_miejsca": 10,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 15:20:09"
+        },
+        {
+          "oddzial": "ZESPOŁY ABSTYNENCYJNE",
+          "ilosc_miejsc": 56,
+          "wolne_miejsca": 0,
+          "uwagi": "Oddział I terapii uzależnień od alkoholu -koedukacyjny",
+          "data_aktualizacji": "2026-04-11 15:20:09"
+        },
+        {
+          "oddzial": "IZBA PRZYJĘĆ",
+          "ilosc_miejsc": 0,
+          "wolne_miejsca": 0,
+          "uwagi": null,
+          "data_aktualizacji": "2026-04-11 15:20:09"
+        }
+      ]
+    }
+  ]
+}
