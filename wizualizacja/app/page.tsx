@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 
 import { BottomTicker } from '@/components/layout/BottomTicker';
 import { SideNavBar } from '@/components/layout/SideNavBar';
@@ -67,6 +67,44 @@ export default function HomePage() {
   const { hospitals, loading: hospitalsLoading } = useHospitals();
   const { stats } = useHospitalStats();
 
+  // Build search index from territories for TopNavBar
+  const searchIndex = useMemo(() => {
+    const powiatFeatures = territories.powiaty?.features ?? [];
+    const gminaFeatures = territories.gminy?.features ?? [];
+
+    const powiatNameByTeryt = new Map<string, string>();
+    for (const p of powiatFeatures) {
+      const t = p.properties.teryt;
+      if (t) powiatNameByTeryt.set(t.slice(0, 4), p.properties.name);
+    }
+
+    const items: Array<{ id: string; name: string; kind: 'powiat' | 'gmina'; parentName?: string }> = [];
+    for (const p of powiatFeatures) {
+      items.push({ id: p.properties.id, name: p.properties.name, kind: 'powiat' });
+    }
+    for (const g of gminaFeatures) {
+      const t = g.properties.teryt;
+      const parent = t ? powiatNameByTeryt.get(t.slice(0, 4)) : undefined;
+      items.push({ id: g.properties.id, name: g.properties.name, kind: 'gmina', parentName: parent });
+    }
+    return items;
+  }, [territories.powiaty, territories.gminy]);
+
+  const handleSearchSelect = useCallback(
+    (result: { id: string; kind: 'powiat' | 'gmina' }) => {
+      if (result.kind === 'powiat') {
+        setTerritoryLevel('powiat');
+        setSelectedGminaId(null);
+        setSelectedPowiatId(result.id);
+      } else {
+        setTerritoryLevel('gmina');
+        setSelectedPowiatId(null);
+        setSelectedGminaId(result.id);
+      }
+    },
+    []
+  );
+
   function handleSidebarClick(panel: PanelId) {
     setActivePanel(current => (current === panel ? null : panel));
   }
@@ -81,7 +119,12 @@ export default function HomePage() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-surface text-on-surface">
-      <TopNavBar activeTab={activeTab} onTabChange={setActiveTab} />
+      <TopNavBar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        searchIndex={searchIndex}
+        onSelectSearchResult={handleSearchSelect}
+      />
       <SideNavBar activePanel={activePanel} onSelect={handleSidebarClick} />
 
       {activeTab === 'map' && (

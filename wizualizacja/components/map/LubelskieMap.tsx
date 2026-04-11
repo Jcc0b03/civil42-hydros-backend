@@ -31,6 +31,20 @@ import type {
   ApiHospital
 } from '@/lib/types';
 
+const MARKER_PANE = 'markerPane650';
+
+/** Creates a custom Leaflet pane so markers render above GeoJSON polygons. */
+function CreateMarkerPane() {
+  const map = useMap();
+  useEffect(() => {
+    if (!map.getPane(MARKER_PANE)) {
+      const pane = map.createPane(MARKER_PANE);
+      pane.style.zIndex = '650';
+    }
+  }, [map]);
+  return null;
+}
+
 type Props = {
   powiaty: TerritoryFeatureCollection | null;
   gminy: TerritoryFeatureCollection | null;
@@ -118,6 +132,8 @@ export default function LubelskieMap({
         />
 
         <FlyToHospital hospital={selectedHospital ?? null} />
+
+        <CreateMarkerPane />
 
         {showPowiaty && (
           <GeoJSON
@@ -250,6 +266,8 @@ function HospitalLayer({
             key={hospital.id}
             center={[hospital.latitude!, hospital.longitude!]}
             radius={8}
+            pane={MARKER_PANE}
+            bubblingMouseEvents={false}
             pathOptions={{
               color: fillColor,
               weight: 2,
@@ -304,6 +322,8 @@ function CameraLayer({
       <CircleMarker
         center={clusterCenter}
         radius={16}
+        pane={MARKER_PANE}
+        bubblingMouseEvents={false}
         pathOptions={{
           color: '#6d1111',
           weight: 2,
@@ -335,6 +355,8 @@ function CameraLayer({
           key={camera.id}
           center={[camera.lat, camera.lon]}
           radius={10}
+          pane={MARKER_PANE}
+          bubblingMouseEvents={false}
           pathOptions={{
             color: '#6d1111',
             weight: 2,
