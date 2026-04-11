@@ -1,44 +1,46 @@
-"use client";
+'use client';
 
-import { useFloodHospitals } from "@/lib/useFloodData";
-import type { HospitalFloodStatus } from "@/lib/types";
+import { useFloodPrediction } from '@/lib/useFloodData';
+import type { FloodRiskHospital } from '@/lib/types';
 
-const STATUS_CONFIG: Record<
-  HospitalFloodStatus,
-  { label: string; icon: string; color: string; bg: string; border: string }
-> = {
-  evacuate: {
-    label: "EWAKUACJA",
-    icon: "emergency_share",
-    color: "text-critical",
-    bg: "bg-critical/5",
-    border: "border-critical/30",
-  },
-  at_risk: {
-    label: "ZAGROŻONY",
-    icon: "warning",
-    color: "text-amber-700",
-    bg: "bg-amber-500/5",
-    border: "border-amber-500/30",
-  },
-  redirect: {
-    label: "PRZEKIERUJ ZASOBY",
-    icon: "alt_route",
-    color: "text-primary-dark",
-    bg: "bg-primary/5",
-    border: "border-primary/30",
-  },
-  operational: {
-    label: "OPERACYJNY",
-    icon: "check_circle",
-    color: "text-primary-dark",
-    bg: "bg-primary/5",
-    border: "border-primary/30",
-  },
-};
+function riskConfig(level: string) {
+  switch (level) {
+    case 'high':
+      return {
+        label: 'WYSOKIE RYZYKO',
+        icon: 'emergency_share',
+        color: 'text-critical',
+        bg: 'bg-critical/5',
+        border: 'border-critical/30'
+      };
+    case 'medium':
+      return {
+        label: 'UMIARKOWANE',
+        icon: 'warning',
+        color: 'text-amber-700',
+        bg: 'bg-amber-500/5',
+        border: 'border-amber-500/30'
+      };
+    default:
+      return {
+        label: 'NISKIE',
+        icon: 'check_circle',
+        color: 'text-primary-dark',
+        bg: 'bg-primary/5',
+        border: 'border-primary/30'
+      };
+  }
+}
 
 export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
-  const { data, loading } = useFloodHospitals();
+  const { data, loading } = useFloodPrediction();
+
+  const highRisk =
+    data?.at_risk_hospitals.filter(h => h.station_risk_level === 'high')
+      .length ?? 0;
+  const medRisk =
+    data?.at_risk_hospitals.filter(h => h.station_risk_level === 'medium')
+      .length ?? 0;
 
   return (
     <div className="flex h-fit max-h-[70vh] flex-col overflow-hidden rounded border border-l-4 border-outline border-l-critical bg-white shadow-xl">
@@ -57,17 +59,17 @@ export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
           </button>
         </div>
         <h2 className="font-headline text-lg font-extrabold tracking-tight text-on-surface">
-          Status szpitali
+          Szpitale zagrożone powodzią
         </h2>
         <p className="mt-1 font-headline text-xs text-on-surface-variant">
-          Analiza na podstawie danych IMGW w czasie rzeczywistym
+          Predykcja na podstawie danych IMGW w czasie rzeczywistym
         </p>
       </div>
 
       {loading && (
         <div className="flex items-center justify-center p-8">
           <span className="font-headline text-xs text-on-surface-variant animate-pulse">
-            Pobieranie danych z IMGW i OSM...
+            Analizowanie ryzyka powodziowego...
           </span>
         </div>
       )}
@@ -78,52 +80,58 @@ export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
           <div className="grid grid-cols-3 gap-0 border-b border-outline">
             <div className="border-r border-outline p-3 text-center">
               <span className="block font-headline text-2xl font-black text-critical">
-                {data.summary.evacuate}
+                {highRisk}
               </span>
               <span className="font-headline text-[9px] font-bold uppercase tracking-widest text-critical">
-                Ewakuacja
+                Wys. ryzyko
               </span>
             </div>
             <div className="border-r border-outline p-3 text-center">
               <span className="block font-headline text-2xl font-black text-amber-600">
-                {data.summary.at_risk}
+                {medRisk}
               </span>
               <span className="font-headline text-[9px] font-bold uppercase tracking-widest text-amber-600">
-                Zagrożone
+                Umiarkowane
               </span>
             </div>
             <div className="p-3 text-center">
               <span className="block font-headline text-2xl font-black text-primary-dark">
-                {data.summary.redirect}
+                {data.risk_stations_count}
               </span>
               <span className="font-headline text-[9px] font-bold uppercase tracking-widest text-primary-dark">
-                Przekierowanie
+                Stacji hydro
               </span>
             </div>
           </div>
 
-          {/* Hydro alerts */}
-          {data.hydro_alerts.length > 0 && (
+          {/* Risk stations summary */}
+          {data.risk_stations.filter(s => s.risk_level === 'high').length >
+            0 && (
             <div className="border-b border-outline bg-critical/5 px-4 py-3">
               <span className="mb-2 block font-headline text-[9px] font-bold uppercase tracking-widest text-critical">
-                Aktywne alerty hydrologiczne
+                Stacje o wysokim ryzyku
               </span>
               <div className="flex flex-wrap gap-2">
-                {data.hydro_alerts.map((a) => (
-                  <span
-                    key={`${a.station}-${a.river}`}
-                    className={`inline-flex items-center gap-1 rounded px-2 py-0.5 font-headline text-[10px] font-bold ${
-                      a.status === "critical"
-                        ? "bg-critical/10 text-critical"
-                        : "bg-amber-500/10 text-amber-700"
-                    }`}
-                  >
-                    <span className="material-symbols-outlined text-[11px]">
-                      {a.status === "critical" ? "warning" : "error"}
+                {data.risk_stations
+                  .filter(s => s.risk_level === 'high')
+                  .map(s => (
+                    <span
+                      key={s.station_id}
+                      className="inline-flex items-center gap-1 rounded bg-critical/10 px-2 py-0.5 font-headline text-[10px] font-bold text-critical"
+                    >
+                      <span className="material-symbols-outlined text-[11px]">
+                        warning
+                      </span>
+                      {s.river} ({s.station_name}) – {s.latest_water_level_cm}{' '}
+                      cm
+                      {s.trend_cm_per_hour !== 0 && (
+                        <span className="text-[9px]">
+                          {s.trend_cm_per_hour > 0 ? '↑' : '↓'}
+                          {Math.abs(s.trend_cm_per_hour).toFixed(1)}/h
+                        </span>
+                      )}
                     </span>
-                    {a.river} ({a.station}) – {a.level_cm} cm
-                  </span>
-                ))}
+                  ))}
               </div>
             </div>
           )}
@@ -131,20 +139,20 @@ export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
           {/* Hospital list */}
           <div className="flex-1 overflow-y-auto p-3">
             <div className="flex flex-col gap-2">
-              {data.hospitals.map((h) => {
-                const cfg = STATUS_CONFIG[h.flood_status];
+              {data.at_risk_hospitals.map((h: FloodRiskHospital) => {
+                const cfg = riskConfig(h.station_risk_level);
                 return (
                   <div
-                    key={`${h.name}-${h.lat}-${h.lon}`}
+                    key={h.id}
                     className={`rounded border p-3 ${cfg.border} ${cfg.bg}`}
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0 flex-1">
                         <span className="block truncate font-headline text-xs font-semibold text-on-surface">
-                          {h.name}
+                          {h.hospital_name}
                         </span>
                         <span className="font-headline text-[10px] text-on-surface-variant">
-                          {h.lat.toFixed(3)}°N, {h.lon.toFixed(3)}°E
+                          {h.address}
                         </span>
                       </div>
                       <span
@@ -156,14 +164,16 @@ export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
                         {cfg.label}
                       </span>
                     </div>
-                    {h.nearest_threat_station && (
-                      <p className="mt-1.5 font-headline text-[10px] text-on-surface-variant">
-                        Zagrożenie ze stacji{" "}
-                        <strong>{h.nearest_threat_station}</strong> –{" "}
-                        {h.threat_distance_km} km
-                      </p>
-                    )}
-                    {h.flood_status === "evacuate" && (
+                    <div className="mt-1.5 flex items-center gap-3 font-headline text-[10px] text-on-surface-variant">
+                      <span>
+                        Stacja: <strong>{h.nearest_risk_station_name}</strong> –{' '}
+                        {h.distance_km.toFixed(1)} km
+                      </span>
+                      <span>
+                        Łóżka: {h.total_free_beds}/{h.total_beds}
+                      </span>
+                    </div>
+                    {h.station_risk_level === 'high' && (
                       <button
                         type="button"
                         className="mt-2 flex w-full items-center justify-center gap-1.5 rounded bg-critical py-2 font-headline text-[10px] font-bold uppercase tracking-widest text-white hover:opacity-90"
@@ -172,17 +182,6 @@ export function FloodHospitalsPanel({ onClose }: { onClose: () => void }) {
                           emergency_share
                         </span>
                         Zarządź ewakuację
-                      </button>
-                    )}
-                    {h.flood_status === "redirect" && (
-                      <button
-                        type="button"
-                        className="mt-2 flex w-full items-center justify-center gap-1.5 rounded border border-primary/30 bg-primary/10 py-2 font-headline text-[10px] font-bold uppercase tracking-widest text-primary-dark hover:bg-primary/20"
-                      >
-                        <span className="material-symbols-outlined text-sm">
-                          alt_route
-                        </span>
-                        Przekieruj zasoby tutaj
                       </button>
                     )}
                   </div>

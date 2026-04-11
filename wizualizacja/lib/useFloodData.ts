@@ -1,24 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { FloodHospitalsResponse, HydroStation } from './types';
+import type { FloodOverviewResponse, FloodPredictionResponse } from './types';
 
-const API_BASE = '/api/szpitale';
+const API_BASE = '/api/backend';
 
-export function useHydroStations() {
-  const [data, setData] = useState<HydroStation[]>([]);
+export function useFloodOverview() {
+  const [data, setData] = useState<FloodOverviewResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(`${API_BASE}/hydro`);
+        const r = await fetch(`${API_BASE}/flood/overview`);
         if (!r.ok) throw new Error('not ok');
-        const json = await r.json();
-        if (!cancelled && Array.isArray(json)) setData(json);
+        const json: FloodOverviewResponse = await r.json();
+        if (!cancelled) setData(json);
       } catch {
-        /* API unavailable – keep empty */
+        /* API unavailable */
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -31,19 +31,18 @@ export function useHydroStations() {
   return { data, loading };
 }
 
-export function useFloodHospitals() {
-  const [data, setData] = useState<FloodHospitalsResponse | null>(null);
+export function useFloodPrediction() {
+  const [data, setData] = useState<FloodPredictionResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(`${API_BASE}/flood-hospitals`);
+        const r = await fetch(`${API_BASE}/flood/prediction`);
         if (!r.ok) throw new Error('not ok');
-        const json: FloodHospitalsResponse = await r.json();
-        if (!cancelled && json?.summary && Array.isArray(json?.hospitals))
-          setData(json);
+        const json: FloodPredictionResponse = await r.json();
+        if (!cancelled) setData(json);
       } catch {
         /* API unavailable */
       } finally {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { ApiHospital, ApiHospitalListResponse, ApiStats } from './types';
 
-const API_BASE = '/api/szpitale';
+const API_BASE = '/api/backend';
 
 export function useHospitals() {
   const [hospitals, setHospitals] = useState<ApiHospital[]>([]);

@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { HydroStation } from '@/lib/types';
-
-const API_BASE = '/api/szpitale';
+import { useFloodOverview } from '@/lib/useFloodData';
 
 function formatTimestamp(date: Date): string {
   const pad = (n: number) => n.toString().padStart(2, '0');
@@ -12,50 +10,9 @@ function formatTimestamp(date: Date): string {
   )}:${pad(date.getMinutes())}:${pad(date.getSeconds())} CET`;
 }
 
-type HydroSummary = {
-  critical: number;
-  warning: number;
-  stable: number;
-  total: number;
-};
-
-function useHydroSummary(): HydroSummary {
-  const [summary, setSummary] = useState<HydroSummary>({
-    critical: 0,
-    warning: 0,
-    stable: 0,
-    total: 0
-  });
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const r = await fetch(`${API_BASE}/hydro`);
-        const data: HydroStation[] = await r.json();
-        if (cancelled || !Array.isArray(data)) return;
-        const s = { critical: 0, warning: 0, stable: 0, total: data.length };
-        for (const st of data) {
-          if (st.status === 'critical') s.critical++;
-          else if (st.status === 'warning') s.warning++;
-          else s.stable++;
-        }
-        setSummary(s);
-      } catch {
-        /* keep defaults */
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return summary;
-}
-
 export function CrisisHeaderCard() {
   const [now, setNow] = useState<Date | null>(null);
-  const hydro = useHydroSummary();
+  const { data: flood } = useFloodOverview();
 
   useEffect(() => {
     setNow(new Date());
@@ -63,8 +20,11 @@ export function CrisisHeaderCard() {
     return () => window.clearInterval(id);
   }, []);
 
-  const hasCrisis = hydro.critical > 0;
-  const hasWarning = hydro.warning > 0;
+  const stationCount = flood?.lubelskie_station_count ?? 0;
+  const hydroWarnings = flood?.hydro_warnings_count ?? 0;
+  const meteoWarnings = flood?.meteo_flood_like_warnings_count ?? 0;
+  const hasCrisis = hydroWarnings > 0;
+  const hasWarning = meteoWarnings > 0;
 
   return (
     <div className="rounded border border-outline bg-white shadow-lg">
@@ -91,7 +51,7 @@ export function CrisisHeaderCard() {
       </div>
 
       {/* ── Flood status bar ── */}
-      {hydro.total > 0 && (
+      {stationCount > 0 && (
         <div
           className={`border-t px-4 py-3 ${
             hasCrisis
@@ -122,47 +82,49 @@ export function CrisisHeaderCard() {
                     : 'text-primary-dark'
               }`}
             >
-              Stan hydrologiczny — {hydro.total} stacji
+              Stan hydrologiczny — {stationCount} stacji
             </span>
           </div>
           <div className="flex gap-3">
-            {hydro.critical > 0 && (
+            {hydroWarnings > 0 && (
               <div className="flex items-center gap-1.5 rounded bg-critical/10 px-2.5 py-1">
                 <span className="material-symbols-outlined text-xs text-critical">
                   warning
                 </span>
                 <span className="font-headline text-xs font-black text-critical">
-                  {hydro.critical}
+                  {hydroWarnings}
                 </span>
                 <span className="font-headline text-[9px] font-bold uppercase text-critical">
-                  alarm
+                  alerty hydro
                 </span>
               </div>
             )}
-            {hydro.warning > 0 && (
+            {meteoWarnings > 0 && (
               <div className="flex items-center gap-1.5 rounded bg-amber-500/10 px-2.5 py-1">
                 <span className="material-symbols-outlined text-xs text-amber-600">
                   error
                 </span>
                 <span className="font-headline text-xs font-black text-amber-700">
-                  {hydro.warning}
+                  {meteoWarnings}
                 </span>
                 <span className="font-headline text-[9px] font-bold uppercase text-amber-600">
-                  ostrzeż.
+                  alerty meteo
                 </span>
               </div>
             )}
-            <div className="flex items-center gap-1.5 rounded bg-primary/10 px-2.5 py-1">
-              <span className="material-symbols-outlined text-xs text-primary-dark">
-                check_circle
-              </span>
-              <span className="font-headline text-xs font-black text-primary-dark">
-                {hydro.stable}
-              </span>
-              <span className="font-headline text-[9px] font-bold uppercase text-primary-dark">
-                norma
-              </span>
-            </div>
+            {!hasCrisis && !hasWarning && (
+              <div className="flex items-center gap-1.5 rounded bg-primary/10 px-2.5 py-1">
+                <span className="material-symbols-outlined text-xs text-primary-dark">
+                  check_circle
+                </span>
+                <span className="font-headline text-xs font-black text-primary-dark">
+                  {stationCount}
+                </span>
+                <span className="font-headline text-[9px] font-bold uppercase text-primary-dark">
+                  norma
+                </span>
+              </div>
+            )}
           </div>
         </div>
       )}

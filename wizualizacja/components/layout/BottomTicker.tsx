@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { RIVER_TICKER } from '@/lib/constants';
-import type { HydroStation, RiverStatus } from '@/lib/types';
+import type { RiverStatus, FloodOverviewStation } from '@/lib/types';
 
-const API_BASE = '/api/szpitale';
+const API_BASE = '/api/backend';
 
 const STATUS_ICON: Record<RiverStatus['status'], string> = {
   critical: 'warning',
@@ -19,25 +19,29 @@ function useHydroTicker(): RiverStatus[] {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(`${API_BASE}/hydro`);
-        const data: HydroStation[] = await r.json();
-        if (cancelled || !Array.isArray(data) || data.length === 0) return;
+        const res = await fetch(`${API_BASE}/flood/overview`);
+        if (cancelled || !res.ok) return;
 
-        // Deduplicate by river name, keep the worst status
-        const byRiver = new Map<string, RiverStatus>();
-        for (const s of data) {
-          const name = s.river || s.station || '?';
-          const existing = byRiver.get(name);
-          const priority = { critical: 0, warning: 1, stable: 2 };
-          if (!existing || priority[s.status] < priority[existing.status]) {
-            byRiver.set(name, {
-              name,
-              level: s.level_cm ? `${s.level_cm}cm` : '—',
-              status: s.status
-            });
-          }
+        const floodData = await res.json();
+        const stations: FloodOverviewStation[] =
+          floodData?.lubelskie_top_stations ?? [];
+
+        const items: RiverStatus[] = stations.map(s => {
+          const name = s.river
+            ? `${s.river} (${s.station_name})`
+            : s.station_name || '?';
+          const status: RiverStatus['status'] =
+            s.water_level_cm > 400
+              ? 'critical'
+              : s.water_level_cm > 250
+                ? 'warning'
+                : 'stable';
+          return { name, level: `${s.water_level_cm}cm`, status };
+        });
+
+        if (items.length > 0) {
+          setRivers(items.slice(0, 16));
         }
-        setRivers(Array.from(byRiver.values()).slice(0, 12));
       } catch {
         /* keep fallback data */
       }

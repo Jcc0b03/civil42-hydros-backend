@@ -57,6 +57,7 @@ type Props = {
   onSelectCamera: (camera: CameraFeed) => void;
   hospitals?: ApiHospital[];
   onSelectHospital?: (hospital: ApiHospital) => void;
+  onDeselectHospital?: () => void;
   selectedHospital?: ApiHospital | null;
 };
 
@@ -96,6 +97,7 @@ export default function LubelskieMap({
   onSelectCamera,
   hospitals,
   onSelectHospital,
+  onDeselectHospital,
   selectedHospital
 }: Props) {
   const powiatLayerRef = useRef<LeafletFeatureGroup | null>(null);
@@ -217,6 +219,7 @@ export default function LubelskieMap({
           <HospitalLayer
             hospitals={hospitals}
             onSelectHospital={onSelectHospital}
+            onDeselectHospital={onDeselectHospital}
           />
         )}
 
@@ -237,10 +240,12 @@ export default function LubelskieMap({
 
 function HospitalLayer({
   hospitals,
-  onSelectHospital
+  onSelectHospital,
+  onDeselectHospital
 }: {
   hospitals: ApiHospital[];
   onSelectHospital?: (hospital: ApiHospital) => void;
+  onDeselectHospital?: () => void;
 }) {
   const geoHospitals = hospitals.filter(
     h => h.latitude != null && h.longitude != null
@@ -275,7 +280,8 @@ function HospitalLayer({
               fillOpacity: 0.85
             }}
             eventHandlers={{
-              click: () => onSelectHospital?.(hospital)
+              click: () => onSelectHospital?.(hospital),
+              popupclose: () => onDeselectHospital?.()
             }}
           >
             <Tooltip
@@ -397,11 +403,18 @@ function CameraLayer({
 
 function FlyToHospital({ hospital }: { hospital: ApiHospital | null }) {
   const map = useMap();
+  const prevRef = useRef<ApiHospital | null>(null);
 
   useEffect(() => {
-    if (!hospital || hospital.latitude == null || hospital.longitude == null)
-      return;
-    map.flyTo([hospital.latitude, hospital.longitude], 14, { duration: 0.8 });
+    const prev = prevRef.current;
+    prevRef.current = hospital;
+
+    if (hospital && hospital.latitude != null && hospital.longitude != null) {
+      map.flyTo([hospital.latitude, hospital.longitude], 14, { duration: 0.8 });
+    } else if (!hospital && prev) {
+      // Hospital deselected — zoom back out
+      map.flyTo(LUBELSKIE_CENTER, LUBELSKIE_INITIAL_ZOOM, { duration: 0.8 });
+    }
   }, [map, hospital]);
 
   return null;

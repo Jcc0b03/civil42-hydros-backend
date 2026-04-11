@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react';
 import { PanelShell } from './PanelShell';
-import type { FloodWarning } from '@/lib/types';
-
-const API_BASE = '/api/szpitale';
+import { useFloodOverview } from '@/lib/useFloodData';
 
 const RISK_ITEMS = [
   {
@@ -38,46 +35,37 @@ const TONE_STYLE = {
 };
 
 export function RiskPanel({ onClose }: { onClose: () => void }) {
-  const [floodWarnings, setFloodWarnings] = useState<FloodWarning[]>([]);
+  const { data: flood } = useFloodOverview();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const r = await fetch(`${API_BASE}/flood-warnings`);
-        const data = await r.json();
-        if (Array.isArray(data)) setFloodWarnings(data);
-      } catch {
-        /* API unavailable */
-      }
-    })();
-  }, []);
+  const hydroWarnings = flood?.hydro_warnings ?? [];
+  const meteoWarnings = flood?.meteo_flood_like_warnings ?? [];
+  const allWarnings = [...hydroWarnings, ...meteoWarnings];
 
   return (
     <PanelShell title="Rejestr ryzyk" onClose={onClose}>
       <div className="flex flex-col gap-2">
-        {/* Live IMGW flood warnings */}
-        {floodWarnings.length > 0 && (
+        {/* Live IMGW flood warnings from /api/flood/overview */}
+        {allWarnings.length > 0 && (
           <>
             <div className="flex items-center gap-2 px-1 font-headline text-[9px] font-bold uppercase tracking-widest text-critical">
               <span className="material-symbols-outlined text-xs">flood</span>
-              Ostrzeżenia IMGW (live)
+              Ostrzeżenia IMGW (live) — {allWarnings.length}
             </div>
-            {floodWarnings.map((w, i) => (
+            {allWarnings.map((w, i) => (
               <div
-                key={w.id ?? i}
+                key={i}
                 className="rounded border border-critical/30 bg-critical/5 p-3 text-critical"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-headline text-xs font-semibold text-on-surface">
-                    {w.phenomenon || w.region || 'Ostrzeżenie hydrologiczne'}
+                    {w.phenomenon || w.title || 'Ostrzeżenie'}
                   </span>
                   <span className="font-headline text-[9px] font-bold uppercase tracking-widest">
-                    STOPIEŃ {w.level || '?'}
+                    STOPIEŃ {w.level ?? '?'}
                   </span>
                 </div>
                 <p className="mt-1 font-headline text-[11px] text-on-surface-variant">
-                  {w.description ||
-                    `${w.region ?? ''} | ${w.start ?? ''} – ${w.end ?? ''}`}
+                  {w.description || w.content || ''}
                 </p>
               </div>
             ))}

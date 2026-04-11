@@ -48,59 +48,68 @@ export type RiverStatus = {
   status: 'critical' | 'warning' | 'stable';
 };
 
-export type HydroStation = {
-  station: string;
+// ── Flood overview (IMGW) ──
+
+export type FloodOverviewStation = {
+  station_id: string;
+  station_name: string;
   river: string;
-  province: string;
-  level_cm: string | null;
-  level_date: string | null;
-  temperature: string | null;
-  warning_level: string | null;
-  alarm_level: string | null;
-  trend: string | null;
-  status: 'critical' | 'warning' | 'stable';
+  voivodeship: string;
+  latitude: number | null;
+  longitude: number | null;
+  water_level_cm: number | null;
+  measured_at: string;
 };
 
-export type FloodWarning = {
-  id: string | null;
-  region: string | null;
-  level: string | null;
-  phenomenon: string | null;
-  start: string | null;
-  end: string | null;
-  description: string | null;
-  probability: string | null;
+export type FloodOverviewResponse = {
+  source: string;
+  hydro_warnings_count: number;
+  hydro_warnings: Record<string, unknown>[];
+  meteo_flood_like_warnings_count: number;
+  meteo_flood_like_warnings: Record<string, unknown>[];
+  lubelskie_station_count: number;
+  lubelskie_top_stations: FloodOverviewStation[];
 };
 
-export type HospitalFloodStatus =
-  | 'evacuate'
-  | 'at_risk'
-  | 'redirect'
-  | 'operational';
+// ── Flood prediction ──
 
-export type FloodHospital = {
-  name: string;
-  category: string;
-  lat: number;
-  lon: number;
-  flood_status: HospitalFloodStatus;
-  nearest_threat_station: string | null;
-  threat_distance_km: number | null;
+export type FloodRiskStation = {
+  station_id: string;
+  station_name: string;
+  river: string;
+  latitude: number;
+  longitude: number;
+  latest_water_level_cm: number;
+  median_water_level_cm: number | null;
+  trend_cm_per_hour: number;
+  risk_score: number;
+  risk_level: string;
 };
 
-export type FloodHospitalsResponse = {
-  timestamp: string;
-  summary: {
-    total: number;
-    evacuate: number;
-    at_risk: number;
-    redirect: number;
-  };
-  hydro_alerts: HydroStation[];
-  hospitals: FloodHospital[];
+export type FloodRiskHospital = {
+  id: number;
+  hospital_name: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  total_free_beds: number;
+  total_beds: number;
+  nearest_risk_station_id: string;
+  nearest_risk_station_name: string;
+  distance_km: number;
+  station_risk_level: string;
+  station_risk_score: number;
 };
 
-// ── Szpitale Lublin API types ──
+export type FloodPredictionResponse = {
+  source: string;
+  prediction_generated_at: string;
+  history_points_per_station: number;
+  risk_stations_count: number;
+  risk_stations: FloodRiskStation[];
+  at_risk_hospitals_count: number;
+  at_risk_hospitals: FloodRiskHospital[];
+};
 
 export type ApiHospitalDepartment = {
   department_id: number;
@@ -142,4 +151,27 @@ export type ApiStats = {
   hospitals_missing_coordinates: number;
   last_refresh_at: string;
   last_successful_ingestion_at: string;
+};
+
+// ── Flood overview (IMGW) ──
+
+export type FloodOverviewStation = {
+  station_id: string;
+  station_name: string;
+  river: string;
+  voivodeship: string;
+  latitude: number;
+  longitude: number;
+  water_level_cm: number;
+  measured_at: string;
+};
+
+export type FloodOverviewResponse = {
+  source: string;
+  hydro_warnings_count: number;
+  hydro_warnings: Record<string, unknown>[];
+  meteo_flood_like_warnings_count: number;
+  meteo_flood_like_warnings: Record<string, unknown>[];
+  lubelskie_station_count: number;
+  lubelskie_top_stations: FloodOverviewStation[];
 };

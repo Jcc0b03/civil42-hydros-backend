@@ -2,10 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     return [
       {
-        source: '/api/szpitale/:path*',
-        destination: 'https://laptop-75skiqoe.tail888d9f.ts.net/api/:path*'
+        source: '/api/backend/:path*',
+        destination: `${apiUrl}/api/:path*`
       }
     ];
   }
