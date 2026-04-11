@@ -1,11 +1,15 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import type { VoiceAction } from '@/lib/types';
 
 const API_BASE = '/api/backend';
 
 type VoiceState = 'idle' | 'recording' | 'processing' | 'speaking';
+
+const SILENCE_THRESHOLD = 0.015; // RMS below this = silence
+const SILENCE_DURATION_MS = 1800; // 1.8s of silence → auto-stop
+const VAD_INTERVAL_MS = 100; // check every 100ms
 
 type Props = {
   onAction: (action: VoiceAction) => void;
@@ -18,8 +22,21 @@ export function VoiceController({ onAction }: Props) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const streamRef = useRef<MediaStream | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const vadIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const silenceStartRef = useRef<number | null>(null);
+  const hasSpokenRef = useRef(false);
 
   const stopRecording = useCallback(() => {
+    // Stop VAD
+    if (vadIntervalRef.current) {
+      clearInterval(vadIntervalRef.current);
+      vadIntervalRef.current = null;
+    }
+    silenceStartRef.current = null;
+    hasSpokenRef.current = false;
+
     if (
       mediaRecorderRef.current &&
       mediaRecorderRef.current.state !== 'inactive'
@@ -30,6 +47,11 @@ export function VoiceController({ onAction }: Props) {
       streamRef.current.getTracks().forEach(t => t.stop());
       streamRef.current = null;
     }
+    if (audioContextRef.current) {
+      audioContextRef.current.close().catch(() => {});
+      audioContextRef.current = null;
+      analyserRef.current = null;
+    }
   }, []);
 
   const startRecording = useCallback(async () => {
@@ -38,11 +60,20 @@ export function VoiceController({ onAction }: Props) {
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
-          sampleRate: 16000,
-        },
+          sampleRate: 16000
+        }
       });
       streamRef.current = stream;
-
+      // Set up VAD via Web Audio API
+      const audioCtx = new AudioContext();
+      audioContextRef.current = audioCtx;
+      const source = audioCtx.createMediaStreamSource(stream);
+      const analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 512;
+      source.connect(analyser);
+      analyserRef.current = analyser;
+      silenceStartRef.current = null;
+      hasSpokenRef.current = false;
       const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
         ? 'audio/webm;codecs=opus'
         : 'audio/webm';
@@ -64,7 +95,7 @@ export function VoiceController({ onAction }: Props) {
 
           const response = await fetch(`${API_BASE}/voice-control`, {
             method: 'POST',
-            body: formData,
+            body: formData
           });
 
           if (!response.ok) {
@@ -124,12 +155,51 @@ export function VoiceController({ onAction }: Props) {
       mediaRecorderRef.current = recorder;
       recorder.start();
       setState('recording');
+
+      // Start VAD: auto-stop after silence following speech
+      const dataArray = new Float32Array(analyser.fftSize);
+      vadIntervalRef.current = setInterval(() => {
+        if (!analyserRef.current) return;
+        analyserRef.current.getFloatTimeDomainData(dataArray);
+        // Compute RMS
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) {
+          sum += dataArray[i] * dataArray[i];
+        }
+        const rms = Math.sqrt(sum / dataArray.length);
+
+        if (rms > SILENCE_THRESHOLD) {
+          // User is speaking
+          hasSpokenRef.current = true;
+          silenceStartRef.current = null;
+        } else if (hasSpokenRef.current) {
+          // Silence after speech
+          if (!silenceStartRef.current) {
+            silenceStartRef.current = Date.now();
+          } else if (
+            Date.now() - silenceStartRef.current >=
+            SILENCE_DURATION_MS
+          ) {
+            // Silence long enough → auto-stop
+            stopRecording();
+          }
+        }
+      }, VAD_INTERVAL_MS);
     } catch {
       setState('idle');
       setTranscript('Brak dostępu do mikrofonu');
       setTimeout(() => setTranscript(null), 4000);
     }
-  }, [onAction]);
+  }, [onAction, stopRecording]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (vadIntervalRef.current) clearInterval(vadIntervalRef.current);
+      if (audioContextRef.current)
+        audioContextRef.current.close().catch(() => {});
+    };
+  }, []);
 
   const toggleRecording = useCallback(() => {
     if (state === 'recording') {
@@ -160,16 +230,12 @@ export function VoiceController({ onAction }: Props) {
             ? 'bg-critical text-white shadow-lg shadow-critical/40 scale-110'
             : state === 'processing' || state === 'speaking'
               ? 'bg-primary/20 text-primary-dark cursor-wait'
-              : 'bg-surface-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary-dark active:scale-95',
+              : 'bg-surface-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary-dark active:scale-95'
         ].join(' ')}
         title={stateLabel}
       >
         {state === 'processing' || state === 'speaking' ? (
-          <svg
-            className="h-5 w-5 animate-spin"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
+          <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
             <circle
               cx="12"
               cy="12"

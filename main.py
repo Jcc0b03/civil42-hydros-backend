@@ -1,8 +1,10 @@
+import asyncio
 import math
 import os
 import io
 import base64
 import json
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -13,23 +15,43 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
-# Load API keys from .env in parent directory
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+# Load API keys from .env in project root
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = FastAPI(
     title="Lublin – Awaria Środowiskowa Dashboard",
     description="API zarządzania kryzysowego: jakość powietrza, meteo, obiekty wrażliwe, strefy zagrożenia, ryzyko powodziowe.",
     version="1.1.0",
     openapi_tags=[
-        {"name": "Jakość powietrza", "description": "Dane PM2.5/PM10 ze stacji GIOŚ w okolicy Lublina"},
-        {"name": "Pogoda", "description": "Warunki meteorologiczne z IMGW (wiatr, temperatura, opad)"},
-        {"name": "Obiekty wrażliwe", "description": "Szkoły, szpitale, DPS-y, przedszkola z OpenStreetMap"},
-        {"name": "Strefa zagrożenia", "description": "Analiza: łączy powietrze + meteo → strefy i rekomendacje"},
-        {"name": "Powódź", "description": "Dane hydrologiczne IMGW, ostrzeżenia powodziowe, analiza szpitali"},
-        {"name": "Głos", "description": "Sterowanie głosowe: Whisper STT → GPT-4o → ElevenLabs TTS"},
+        {
+            "name": "Jakość powietrza",
+            "description": "Dane PM2.5/PM10 ze stacji GIOŚ w okolicy Lublina",
+        },
+        {
+            "name": "Pogoda",
+            "description": "Warunki meteorologiczne z IMGW (wiatr, temperatura, opad)",
+        },
+        {
+            "name": "Obiekty wrażliwe",
+            "description": "Szkoły, szpitale, DPS-y, przedszkola z OpenStreetMap",
+        },
+        {
+            "name": "Strefa zagrożenia",
+            "description": "Analiza: łączy powietrze + meteo → strefy i rekomendacje",
+        },
+        {
+            "name": "Powódź",
+            "description": "Dane hydrologiczne IMGW, ostrzeżenia powodziowe, analiza szpitali",
+        },
+        {
+            "name": "Głos",
+            "description": "Sterowanie głosowe: Whisper STT → GPT-4o → ElevenLabs TTS",
+        },
     ],
 )
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
+)
 
 LUBLIN_LAT = 51.2465
 LUBLIN_LON = 22.5684
@@ -42,19 +64,38 @@ IMGW_WARNINGS_HYDRO = "https://danepubliczne.imgw.pl/api/data/warningshydro"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 
 LUBELSKIE_RIVERS = {
-    "bug", "wieprz", "wisła", "san", "tyśmienica", "huczwa",
-    "bystrzyca", "krzna", "tanew", "por", "kurówka", "giełczew",
-    "uherka", "łabuńka", "wołkowianka", "ciemięga",
+    "bug",
+    "wieprz",
+    "wisła",
+    "san",
+    "tyśmienica",
+    "huczwa",
+    "bystrzyca",
+    "krzna",
+    "tanew",
+    "por",
+    "kurówka",
+    "giełczew",
+    "uherka",
+    "łabuńka",
+    "wołkowianka",
+    "ciemięga",
 }
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
+
 def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     R = 6371
     dlat = math.radians(lat2 - lat1)
     dlon = math.radians(lon2 - lon1)
-    a = math.sin(dlat / 2) ** 2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon / 2) ** 2
+    a = (
+        math.sin(dlat / 2) ** 2
+        + math.cos(math.radians(lat1))
+        * math.cos(math.radians(lat2))
+        * math.sin(dlon / 2) ** 2
+    )
     return R * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
@@ -65,41 +106,62 @@ def classify_aqi(pm25, pm10) -> dict:
         return {"level": "brak danych", "color": "#999", "actions": []}
 
     if val <= 13:
-        return {"level": "bardzo dobry", "color": "#00e400",
-                "actions": ["Brak zagrożenia – normalna aktywność."]}
+        return {
+            "level": "bardzo dobry",
+            "color": "#00e400",
+            "actions": ["Brak zagrożenia – normalna aktywność."],
+        }
     if val <= 35:
-        return {"level": "dobry / umiarkowany", "color": "#ffff00",
-                "actions": ["Osoby wrażliwe powinny ograniczyć długi wysiłek na zewnątrz."]}
+        return {
+            "level": "dobry / umiarkowany",
+            "color": "#ffff00",
+            "actions": ["Osoby wrażliwe powinny ograniczyć długi wysiłek na zewnątrz."],
+        }
     if val <= 55:
-        return {"level": "dostateczny", "color": "#ff7e00",
-                "actions": [
-                    "Ogranicz aktywność na zewnątrz.",
-                    "Zamknij okna w szkołach i DPS-ach.",
-                    "Wydaj ostrzeżenie dla mieszkańców.",
-                ]}
-    if val <= 75:
-        return {"level": "zły", "color": "#ff0000",
-                "actions": [
-                    "🚨 Zamknij szkoły i przedszkola lub przejdź na tryb zdalny.",
-                    "Ogranicz transport publiczny do minimum.",
-                    "Uruchom ostrzeżenie RCB / RSO.",
-                    "Szpitale: przygotuj oddziały pulmonologiczne.",
-                ]}
-    return {"level": "bardzo zły / alarmowy", "color": "#7e0023",
+        return {
+            "level": "dostateczny",
+            "color": "#ff7e00",
             "actions": [
-                "🚨🚨 EWAKUACJA punktowa DPS-ów i szpitali w strefie.",
-                "Zamknij wszystkie placówki oświatowe.",
-                "Zakaz wychodzenia z budynków bez maski FFP2/FFP3.",
-                "Wstrzymaj ruch drogowy w strefie zagrożenia.",
-                "Aktywuj Miejski Zespół Zarządzania Kryzysowego.",
-            ]}
+                "Ogranicz aktywność na zewnątrz.",
+                "Zamknij okna w szkołach i DPS-ach.",
+                "Wydaj ostrzeżenie dla mieszkańców.",
+            ],
+        }
+    if val <= 75:
+        return {
+            "level": "zły",
+            "color": "#ff0000",
+            "actions": [
+                "🚨 Zamknij szkoły i przedszkola lub przejdź na tryb zdalny.",
+                "Ogranicz transport publiczny do minimum.",
+                "Uruchom ostrzeżenie RCB / RSO.",
+                "Szpitale: przygotuj oddziały pulmonologiczne.",
+            ],
+        }
+    return {
+        "level": "bardzo zły / alarmowy",
+        "color": "#7e0023",
+        "actions": [
+            "🚨🚨 EWAKUACJA punktowa DPS-ów i szpitali w strefie.",
+            "Zamknij wszystkie placówki oświatowe.",
+            "Zakaz wychodzenia z budynków bez maski FFP2/FFP3.",
+            "Wstrzymaj ruch drogowy w strefie zagrożenia.",
+            "Aktywuj Miejski Zespół Zarządzania Kryzysowego.",
+        ],
+    }
 
 
-def wind_zone_polygon(lat: float, lon: float, direction_deg: float, speed_kmh: float,
-                       aqi_level: str) -> list[list[float]]:
+def wind_zone_polygon(
+    lat: float, lon: float, direction_deg: float, speed_kmh: float, aqi_level: str
+) -> list[list[float]]:
     """Generate a fan-shaped danger zone downwind from the source."""
-    multiplier = {"bardzo dobry": 0, "dobry / umiarkowany": 0, "dostateczny": 1,
-                  "zły": 2, "bardzo zły / alarmowy": 3}.get(aqi_level, 0)
+    multiplier = {
+        "bardzo dobry": 0,
+        "dobry / umiarkowany": 0,
+        "dostateczny": 1,
+        "zły": 2,
+        "bardzo zły / alarmowy": 3,
+    }.get(aqi_level, 0)
     if multiplier == 0:
         return []
     radius_km = max(1, speed_kmh * 0.3 * multiplier)
@@ -116,7 +178,10 @@ def wind_zone_polygon(lat: float, lon: float, direction_deg: float, speed_kmh: f
 
 # ── GIOŚ (v1 JSON-LD API) ────────────────────────────────────────────────────
 
-@app.get("/api/air-quality", tags=["Jakość powietrza"], summary="Stacje GIOŚ – PM2.5 / PM10")
+
+@app.get(
+    "/api/air-quality", tags=["Jakość powietrza"], summary="Stacje GIOŚ – PM2.5 / PM10"
+)
 async def get_air_quality():
     async with httpx.AsyncClient(timeout=15) as client:
         r = await client.get(f"{GIOS_BASE}/station/findAll?page=0&size=500")
@@ -124,10 +189,19 @@ async def get_air_quality():
 
     all_stations = data.get("Lista stacji pomiarowych", [])
 
-    nearby = [s for s in all_stations
-              if s.get("WGS84 \u03c6 N") and s.get("WGS84 \u03bb E")
-              and haversine(LUBLIN_LAT, LUBLIN_LON,
-                            float(s["WGS84 \u03c6 N"]), float(s["WGS84 \u03bb E"])) <= SEARCH_RADIUS_KM]
+    nearby = [
+        s
+        for s in all_stations
+        if s.get("WGS84 \u03c6 N")
+        and s.get("WGS84 \u03bb E")
+        and haversine(
+            LUBLIN_LAT,
+            LUBLIN_LON,
+            float(s["WGS84 \u03c6 N"]),
+            float(s["WGS84 \u03bb E"]),
+        )
+        <= SEARCH_RADIUS_KM
+    ]
 
     results = []
     async with httpx.AsyncClient(timeout=15) as client:
@@ -136,7 +210,9 @@ async def get_air_quality():
             try:
                 sensors_r = await client.get(f"{GIOS_BASE}/station/sensors/{sid}")
                 sensors_data = sensors_r.json()
-                sensors = sensors_data.get("Lista stanowisk pomiarowych dla podanej stacji", [])
+                sensors = sensors_data.get(
+                    "Lista stanowisk pomiarowych dla podanej stacji", []
+                )
 
                 index_r = await client.get(f"{GIOS_BASE}/aqindex/getIndex/{sid}")
                 index_data = index_r.json().get("AqIndex", {})
@@ -164,23 +240,30 @@ async def get_air_quality():
                     pass
 
             classification = classify_aqi(pm25, pm10)
-            index_name = index_data.get("Nazwa kategorii indeksu") if isinstance(index_data, dict) else None
-            results.append({
-                "id": sid,
-                "name": station.get("Nazwa stacji", ""),
-                "lat": float(station["WGS84 \u03c6 N"]),
-                "lon": float(station["WGS84 \u03bb E"]),
-                "city": station.get("Nazwa miasta", ""),
-                "pm25": pm25,
-                "pm10": pm10,
-                "index": index_name,
-                **classification,
-            })
+            index_name = (
+                index_data.get("Nazwa kategorii indeksu")
+                if isinstance(index_data, dict)
+                else None
+            )
+            results.append(
+                {
+                    "id": sid,
+                    "name": station.get("Nazwa stacji", ""),
+                    "lat": float(station["WGS84 \u03c6 N"]),
+                    "lon": float(station["WGS84 \u03bb E"]),
+                    "city": station.get("Nazwa miasta", ""),
+                    "pm25": pm25,
+                    "pm10": pm10,
+                    "index": index_name,
+                    **classification,
+                }
+            )
 
     return results
 
 
 # ── IMGW (meteo) ─────────────────────────────────────────────────────────────
+
 
 @app.get("/api/weather", tags=["Pogoda"], summary="Dane synoptyczne IMGW – Lublin")
 async def get_weather():
@@ -228,7 +311,12 @@ async def get_weather():
 
 # ── OSM – obiekty wrażliwe ───────────────────────────────────────────────────
 
-@app.get("/api/sensitive-objects", tags=["Obiekty wrażliwe"], summary="Szkoły / szpitale / DPS-y / przedszkola")
+
+@app.get(
+    "/api/sensitive-objects",
+    tags=["Obiekty wrażliwe"],
+    summary="Szkoły / szpitale / DPS-y / przedszkola",
+)
 async def get_sensitive_objects():
     query = f"""
     [out:json][timeout:25];
@@ -275,19 +363,26 @@ async def get_sensitive_objects():
         else:
             category = amenity or social
 
-        results.append({
-            "name": tags.get("name", f"{category} (bez nazwy)"),
-            "category": category,
-            "lat": lat,
-            "lon": lon,
-        })
+        results.append(
+            {
+                "name": tags.get("name", f"{category} (bez nazwy)"),
+                "category": category,
+                "lat": lat,
+                "lon": lon,
+            }
+        )
 
     return results
 
 
 # ── danger zone ──────────────────────────────────────────────────────────────
 
-@app.get("/api/danger-zone", tags=["Strefa zagrożenia"], summary="Analiza zagrożenia + rekomendacje")
+
+@app.get(
+    "/api/danger-zone",
+    tags=["Strefa zagrożenia"],
+    summary="Analiza zagrożenia + rekomendacje",
+)
 async def get_danger_zone():
     """Combine air quality + weather to compute danger zones and recommendations."""
     air = await get_air_quality()
@@ -299,22 +394,34 @@ async def get_danger_zone():
     zones = []
     global_actions: list[str] = []
     worst_level = "bardzo dobry"
-    level_order = ["bardzo dobry", "dobry / umiarkowany", "dostateczny", "zły", "bardzo zły / alarmowy"]
+    level_order = [
+        "bardzo dobry",
+        "dobry / umiarkowany",
+        "dostateczny",
+        "zły",
+        "bardzo zły / alarmowy",
+    ]
 
     for station in air:
         lvl = station.get("level", "brak danych")
-        if lvl in level_order and level_order.index(lvl) > level_order.index(worst_level):
+        if lvl in level_order and level_order.index(lvl) > level_order.index(
+            worst_level
+        ):
             worst_level = lvl
             global_actions = station.get("actions", [])
 
-        polygon = wind_zone_polygon(station["lat"], station["lon"], wind_dir, wind_speed, lvl)
+        polygon = wind_zone_polygon(
+            station["lat"], station["lon"], wind_dir, wind_speed, lvl
+        )
         if polygon:
-            zones.append({
-                "station": station["name"],
-                "level": lvl,
-                "color": station["color"],
-                "polygon": polygon,
-            })
+            zones.append(
+                {
+                    "station": station["name"],
+                    "level": lvl,
+                    "color": station["color"],
+                    "polygon": polygon,
+                }
+            )
 
     return {
         "timestamp": datetime.now().isoformat(),
@@ -327,6 +434,7 @@ async def get_danger_zone():
 
 
 # ── IMGW Hydrologia ─────────────────────────────────────────────────────────
+
 
 def _is_lubelskie_station(station: dict) -> bool:
     """Check if a hydro station belongs to region near Lubelskie."""
@@ -376,24 +484,30 @@ async def get_hydro():
             continue
 
         status = _classify_water_level(s)
-        results.append({
-            "station": s.get("stacja"),
-            "river": s.get("rzeka"),
-            "province": s.get("województwo") or s.get("wojewodztwo"),
-            "level_cm": s.get("stan_wody"),
-            "level_date": s.get("stan_wody_data_pomiaru"),
-            "temperature": s.get("temperatura_wody"),
-            "warning_level": s.get("stan_ostrzegawczy"),
-            "alarm_level": s.get("stan_alarmowy"),
-            "trend": s.get("zjawisko_lodowe") or s.get("zjawisko_zapieczenie"),
-            "status": status,
-        })
+        results.append(
+            {
+                "station": s.get("stacja"),
+                "river": s.get("rzeka"),
+                "province": s.get("województwo") or s.get("wojewodztwo"),
+                "level_cm": s.get("stan_wody"),
+                "level_date": s.get("stan_wody_data_pomiaru"),
+                "temperature": s.get("temperatura_wody"),
+                "warning_level": s.get("stan_ostrzegawczy"),
+                "alarm_level": s.get("stan_alarmowy"),
+                "trend": s.get("zjawisko_lodowe") or s.get("zjawisko_zapieczenie"),
+                "status": status,
+            }
+        )
 
-    results.sort(key=lambda x: {"critical": 0, "warning": 1, "stable": 2}.get(x["status"], 3))
+    results.sort(
+        key=lambda x: {"critical": 0, "warning": 1, "stable": 2}.get(x["status"], 3)
+    )
     return results
 
 
-@app.get("/api/flood-warnings", tags=["Powódź"], summary="Ostrzeżenia hydrologiczne IMGW")
+@app.get(
+    "/api/flood-warnings", tags=["Powódź"], summary="Ostrzeżenia hydrologiczne IMGW"
+)
 async def get_flood_warnings():
     """Aktualnie obowiązujące ostrzeżenia hydrologiczne z IMGW."""
     async with httpx.AsyncClient(timeout=15) as client:
@@ -410,22 +524,29 @@ async def get_flood_warnings():
     for w in data:
         region = (w.get("teren") or w.get("region") or "").lower()
         if "lubel" in region or "lubelskie" in region or not region:
-            warnings.append({
-                "id": w.get("id"),
-                "region": w.get("teren") or w.get("region"),
-                "level": w.get("stopien") or w.get("level"),
-                "phenomenon": w.get("zjawisko") or w.get("phenomenon"),
-                "start": w.get("od") or w.get("start"),
-                "end": w.get("do") or w.get("end"),
-                "description": w.get("tresc") or w.get("opis") or w.get("description"),
-                "probability": w.get("prawdopodobienstwo"),
-            })
+            warnings.append(
+                {
+                    "id": w.get("id"),
+                    "region": w.get("teren") or w.get("region"),
+                    "level": w.get("stopien") or w.get("level"),
+                    "phenomenon": w.get("zjawisko") or w.get("phenomenon"),
+                    "start": w.get("od") or w.get("start"),
+                    "end": w.get("do") or w.get("end"),
+                    "description": w.get("tresc")
+                    or w.get("opis")
+                    or w.get("description"),
+                    "probability": w.get("prawdopodobienstwo"),
+                }
+            )
 
     return warnings
 
 
-@app.get("/api/flood-hospitals", tags=["Powódź"],
-         summary="Szpitale vs. powódź – status operacyjny")
+@app.get(
+    "/api/flood-hospitals",
+    tags=["Powódź"],
+    summary="Szpitale vs. powódź – status operacyjny",
+)
 async def get_flood_hospitals():
     """
     Krzyżuje dane o szpitalach (OSM) z bieżącymi stanami wód (IMGW).
@@ -438,7 +559,9 @@ async def get_flood_hospitals():
     hydro_data = await get_hydro()
     sensitive = await get_sensitive_objects()
 
-    hospitals = [obj for obj in sensitive if obj["category"] in ("szpital", "przychodnia")]
+    hospitals = [
+        obj for obj in sensitive if obj["category"] in ("szpital", "przychodnia")
+    ]
 
     critical_stations = [s for s in hydro_data if s["status"] == "critical"]
     warning_stations = [s for s in hydro_data if s["status"] == "warning"]
@@ -523,21 +646,30 @@ async def get_flood_hospitals():
         elif status == "at_risk":
             at_risk_count += 1
 
-        results.append({
-            **h,
-            "flood_status": status,
-            "nearest_threat_station": nearest_threat,
-            "threat_distance_km": threat_distance,
-        })
+        results.append(
+            {
+                **h,
+                "flood_status": status,
+                "nearest_threat_station": nearest_threat,
+                "threat_distance_km": threat_distance,
+            }
+        )
 
     # Mark safe hospitals far from threats as able to redirect resources
     for r in results:
-        if r["flood_status"] == "operational" and (evacuate_count > 0 or at_risk_count > 0):
+        if r["flood_status"] == "operational" and (
+            evacuate_count > 0 or at_risk_count > 0
+        ):
             r["flood_status"] = "redirect"
 
-    results.sort(key=lambda x: {
-        "evacuate": 0, "at_risk": 1, "redirect": 2, "operational": 3
-    }.get(x["flood_status"], 4))
+    results.sort(
+        key=lambda x: {
+            "evacuate": 0,
+            "at_risk": 1,
+            "redirect": 2,
+            "operational": 3,
+        }.get(x["flood_status"], 4)
+    )
 
     return {
         "timestamp": datetime.now().isoformat(),
@@ -547,14 +679,16 @@ async def get_flood_hospitals():
             "at_risk": at_risk_count,
             "redirect": len(results) - evacuate_count - at_risk_count,
         },
-        "hydro_alerts": [s for s in hydro_data if s["status"] in ("critical", "warning")],
+        "hydro_alerts": [
+            s for s in hydro_data if s["status"] in ("critical", "warning")
+        ],
         "hospitals": results,
     }
 
 
 # ── Voice Control ────────────────────────────────────────────────────────────
 
-VOICE_SYSTEM_PROMPT = """\
+VOICE_SYSTEM_PROMPT_TEMPLATE = """\
 Jesteś asystentem głosowym Centrum Dowodzenia Kryzysowego województwa lubelskiego.
 Aplikacja monitoruje: szpitale, jakość powietrza, kamery miejskie, zagrożenia powodziowe, dane hydrologiczne IMGW.
 
@@ -576,8 +710,111 @@ Warstwy mapy (layer):
 - "powiatBoundaries" – granice powiatów
 - "gminaBoundaries" – granice gmin
 
-Na podstawie komendy głosowej, wybierz akcję i napisz KRÓTKIE potwierdzenie po polsku (1-2 zdania).
-Jeśli komenda jest pytaniem lub nie pasuje do żadnej akcji, użyj akcji "info" i odpowiedz w confirmation_text."""
+Na podstawie komendy głosowej, wybierz akcję i napisz KRÓTKIE potwierdzenie po polsku (1-3 zdania).
+Jeśli komenda jest pytaniem lub prośbą o informacje, użyj akcji "info" i odpowiedz KONKRETNIE
+w confirmation_text, korzystając z danych bieżących podanych poniżej. Podawaj liczby, nazwy, statusy.
+Nie mów "sprawdź w zakładce" – odpowiedz od razu na podstawie danych.
+
+──── BIEŻĄCE DANE DASHBOARDU ────
+{live_data}
+──────────────────────────────────"""
+
+
+# ── Live data cache (TTL 30s) ────────────────────────────────────────────────
+_live_cache: dict[str, Any] = {"text": "", "ts": 0.0}
+_CACHE_TTL = 30  # seconds
+
+
+async def _fetch_weather_summary() -> str:
+    try:
+        weather = await get_weather()
+        return (
+            f"POGODA: {weather.get('temperature_C', '?')}°C, "
+            f"wiatr {weather.get('wind_speed_kmh', '?')} km/h ({weather.get('wind_direction', '?')}), "
+            f"opad: {weather.get('precip_mm', 0)} mm, "
+            f"ciśnienie: {weather.get('pressure_hPa', '?')} hPa"
+        )
+    except Exception:
+        return "POGODA: brak danych"
+
+
+async def _fetch_air_summary() -> str:
+    try:
+        air = await get_air_quality()
+        if air:
+            worst = max(air, key=lambda s: (s.get("pm25") or 0))
+            return (
+                f"JAKOŚĆ POWIETRZA: {len(air)} stacji. Najgorsza: {worst['name']} – "
+                f"PM2.5={worst.get('pm25')}, PM10={worst.get('pm10')}, "
+                f"poziom: {worst.get('level', '?')}"
+            )
+        return "JAKOŚĆ POWIETRZA: brak danych"
+    except Exception:
+        return "JAKOŚĆ POWIETRZA: brak danych"
+
+
+async def _fetch_hydro_summary() -> str:
+    try:
+        hydro = await get_hydro()
+        stations = hydro.get("stations", [])
+        critical = [s for s in stations if s.get("status") == "critical"]
+        warning = [s for s in stations if s.get("status") == "warning"]
+        summary = f"HYDROLOGIA: {len(stations)} stacji."
+        if critical:
+            summary += f" KRYTYCZNE ({len(critical)}): " + ", ".join(
+                f"{s.get('station', '?')} ({s.get('river', '?')}) – {s.get('water_level_cm', '?')} cm"
+                for s in critical[:5]
+            )
+        if warning:
+            summary += f" Ostrzegawcze ({len(warning)}): " + ", ".join(
+                f"{s.get('station', '?')} ({s.get('river', '?')}) – {s.get('water_level_cm', '?')} cm"
+                for s in warning[:5]
+            )
+        if not critical and not warning:
+            summary += " Wszystkie stacje stabilne."
+        return summary
+    except Exception:
+        return "HYDROLOGIA: brak danych"
+
+
+async def _fetch_flood_summary() -> str:
+    try:
+        flood = await get_flood_hospitals()
+        s = flood.get("summary", {})
+        lines = [
+            f"SZPITALE vs POWÓDŹ: {s.get('total', '?')} szpitali, "
+            f"ewakuacja: {s.get('evacuate', 0)}, zagrożone: {s.get('at_risk', 0)}, "
+            f"przekierowanie: {s.get('redirect', 0)}"
+        ]
+        for h in flood.get("hospitals", [])[:8]:
+            if h.get("flood_status") in ("evacuate", "at_risk"):
+                lines.append(
+                    f"  - {h.get('name', '?')}: {h['flood_status']}, "
+                    f"zagrożenie ze stacji: {h.get('nearest_threat_station', '?')} "
+                    f"({h.get('threat_distance_km', '?')} km)"
+                )
+        return "\n".join(lines)
+    except Exception:
+        return "SZPITALE vs POWÓDŹ: brak danych"
+
+
+async def _gather_live_summary() -> str:
+    """Fetch key dashboard data (parallel, cached 30s) for GPT context."""
+    now = time.monotonic()
+    if now - _live_cache["ts"] < _CACHE_TTL and _live_cache["text"]:
+        return _live_cache["text"]
+
+    results = await asyncio.gather(
+        _fetch_weather_summary(),
+        _fetch_air_summary(),
+        _fetch_hydro_summary(),
+        _fetch_flood_summary(),
+    )
+    text = "\n".join(results)
+    _live_cache["text"] = text
+    _live_cache["ts"] = now
+    return text
+
 
 VOICE_TOOL = {
     "type": "function",
@@ -589,8 +826,14 @@ VOICE_TOOL = {
             "properties": {
                 "action": {
                     "type": "string",
-                    "enum": ["switch_tab", "open_panel", "close_panel",
-                             "search_territory", "toggle_layer", "info"],
+                    "enum": [
+                        "switch_tab",
+                        "open_panel",
+                        "close_panel",
+                        "search_territory",
+                        "toggle_layer",
+                        "info",
+                    ],
                     "description": "Typ akcji do wykonania",
                 },
                 "tab": {
@@ -611,8 +854,13 @@ VOICE_TOOL = {
                 },
                 "layer": {
                     "type": "string",
-                    "enum": ["hospitals", "floodZones", "cameras",
-                             "powiatBoundaries", "gminaBoundaries"],
+                    "enum": [
+                        "hospitals",
+                        "floodZones",
+                        "cameras",
+                        "powiatBoundaries",
+                        "gminaBoundaries",
+                    ],
                 },
                 "layer_enabled": {
                     "type": "boolean",
@@ -628,11 +876,11 @@ VOICE_TOOL = {
     },
 }
 
-ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel – multilingual
+ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
+ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # faster than eleven_multilingual_v2
 
 
-@app.post("/api/voice-control", tags=["Głos"],
-          summary="Sterowanie głosowe dashboardem")
+@app.post("/api/voice-control", tags=["Głos"], summary="Sterowanie głosowe dashboardem")
 async def voice_control(file: UploadFile = File(...)):
     """
     Odbiera nagranie audio → transkrybuje (Whisper) → wyciąga akcję (GPT-4o)
@@ -648,27 +896,34 @@ async def voice_control(file: UploadFile = File(...)):
 
     ai = openai.AsyncOpenAI(api_key=openai_key)
 
-    # 1. Transcribe with Whisper ──────────────────────────────────────────────
+    # 1. Transcribe with Whisper + gather live data IN PARALLEL ────────────
     audio_file = io.BytesIO(audio_bytes)
     audio_file.name = file.filename or "audio.webm"
 
-    transcript = await ai.audio.transcriptions.create(
+    transcript_coro = ai.audio.transcriptions.create(
         model="whisper-1",
         file=audio_file,
         language="pl",
     )
+    live_data_coro = _gather_live_summary()
+
+    transcript, live_data = await asyncio.gather(transcript_coro, live_data_coro)
     user_text = transcript.text
 
-    # 2. Extract action with GPT-4o function calling ──────────────────────────
+    # 2. Extract action with GPT-4o-mini function calling ─────────────────────
+    system_prompt = VOICE_SYSTEM_PROMPT_TEMPLATE.format(live_data=live_data)
+
     chat = await ai.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": VOICE_SYSTEM_PROMPT},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text},
         ],
         tools=[VOICE_TOOL],
-        tool_choice={"type": "function",
-                     "function": {"name": "execute_dashboard_action"}},
+        tool_choice={
+            "type": "function",
+            "function": {"name": "execute_dashboard_action"},
+        },
     )
 
     tool_call = chat.choices[0].message.tool_calls[0]
@@ -689,7 +944,7 @@ async def voice_control(file: UploadFile = File(...)):
                     },
                     json={
                         "text": confirmation,
-                        "model_id": "eleven_multilingual_v2",
+                        "model_id": ELEVENLABS_MODEL,
                         "voice_settings": {
                             "stability": 0.5,
                             "similarity_boost": 0.75,
@@ -710,4 +965,5 @@ async def voice_control(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
