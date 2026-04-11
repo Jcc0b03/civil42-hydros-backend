@@ -29,7 +29,8 @@ import type {
   CameraFeed,
   LayerToggles,
   PanelId,
-  TerritoryKind
+  TerritoryKind,
+  VoiceAction
 } from '@/lib/types';
 
 const LubelskieMap = dynamic(() => import('@/components/map/LubelskieMap'), {
@@ -132,6 +133,45 @@ export default function HomePage() {
     setActivePanel(null);
   }
 
+  const handleVoiceAction = useCallback(
+    (action: VoiceAction) => {
+      switch (action.action) {
+        case 'switch_tab':
+          if (action.tab) setActiveTab(action.tab);
+          break;
+        case 'open_panel':
+          if (action.panel) setActivePanel(action.panel);
+          break;
+        case 'close_panel':
+          setActivePanel(null);
+          break;
+        case 'search_territory':
+          if (action.territory_name) {
+            const q = action.territory_name.toLowerCase();
+            const match = searchIndex.find(item => {
+              const n = item.name.toLowerCase();
+              return n.includes(q) || q.includes(n);
+            });
+            if (match) handleSearchSelect({ id: match.id, kind: match.kind });
+          }
+          break;
+        case 'toggle_layer':
+          if (action.layer) {
+            const layer = action.layer as keyof LayerToggles;
+            setLayerToggles(prev => ({
+              ...prev,
+              [layer]: action.layer_enabled ?? !prev[layer],
+            }));
+          }
+          break;
+        case 'info':
+          // No state change – audio confirmation only
+          break;
+      }
+    },
+    [searchIndex, handleSearchSelect]
+  );
+
   return (
     <div className="relative h-screen w-full overflow-hidden bg-surface text-on-surface">
       <TopNavBar
@@ -139,6 +179,7 @@ export default function HomePage() {
         onTabChange={setActiveTab}
         searchIndex={searchIndex}
         onSelectSearchResult={handleSearchSelect}
+        onVoiceAction={handleVoiceAction}
       />
       <SideNavBar activePanel={activePanel} onSelect={handleSidebarClick} />
 

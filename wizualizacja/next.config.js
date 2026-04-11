@@ -5,6 +5,10 @@ const nextConfig = {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     return [
       {
+        source: '/api/backend/voice-control',
+        destination: 'http://localhost:8000/api/voice-control'
+      },
+      {
         source: '/api/backend/:path*',
         destination: `${apiUrl}/api/:path*`
       }

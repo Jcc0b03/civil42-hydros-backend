@@ -1,6 +1,8 @@
 'use client';
 
 import { useMemo, useState, useCallback, useRef, useEffect } from 'react';
+import { VoiceController } from '@/components/voice/VoiceController';
+import type { VoiceAction } from '@/lib/types';
 
 export type TopTab = 'map' | 'hospitals';
 
@@ -30,13 +32,15 @@ type Props = {
   onTabChange?: (tab: TopTab) => void;
   searchIndex?: SearchResult[];
   onSelectSearchResult?: (result: SearchResult) => void;
+  onVoiceAction?: (action: VoiceAction) => void;
 };
 
 export function TopNavBar({
   activeTab = 'map',
   onTabChange,
   searchIndex = [],
-  onSelectSearchResult
+  onSelectSearchResult,
+  onVoiceAction
 }: Props) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
@@ -170,6 +174,9 @@ export function TopNavBar({
             </div>
           )}
         </div>
+
+        {/* ── Voice control mic ── */}
+        {onVoiceAction && <VoiceController onAction={onVoiceAction} />}
 
         <button
           type="button"

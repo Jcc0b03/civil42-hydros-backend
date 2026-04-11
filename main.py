@@ -1,10 +1,20 @@
 import math
+import os
+import io
+import base64
+import json
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 
 import httpx
-from fastapi import FastAPI
+import openai
+from dotenv import load_dotenv
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+
+# Load API keys from .env in parent directory
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 app = FastAPI(
     title="Lublin – Awaria Środowiskowa Dashboard",
@@ -16,6 +26,7 @@ app = FastAPI(
         {"name": "Obiekty wrażliwe", "description": "Szkoły, szpitale, DPS-y, przedszkola z OpenStreetMap"},
         {"name": "Strefa zagrożenia", "description": "Analiza: łączy powietrze + meteo → strefy i rekomendacje"},
         {"name": "Powódź", "description": "Dane hydrologiczne IMGW, ostrzeżenia powodziowe, analiza szpitali"},
+        {"name": "Głos", "description": "Sterowanie głosowe: Whisper STT → GPT-4o → ElevenLabs TTS"},
     ],
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -538,6 +549,162 @@ async def get_flood_hospitals():
         },
         "hydro_alerts": [s for s in hydro_data if s["status"] in ("critical", "warning")],
         "hospitals": results,
+    }
+
+
+# ── Voice Control ────────────────────────────────────────────────────────────
+
+VOICE_SYSTEM_PROMPT = """\
+Jesteś asystentem głosowym Centrum Dowodzenia Kryzysowego województwa lubelskiego.
+Aplikacja monitoruje: szpitale, jakość powietrza, kamery miejskie, zagrożenia powodziowe, dane hydrologiczne IMGW.
+
+Dostępne zakładki (tab):
+- "map" – przegląd regionalny z mapą
+- "hospitals" – lista szpitali z łóżkami
+
+Panele boczne (panel):
+- "map" – filtr terytorialny (powiaty / gminy)
+- "live" – kamery na żywo
+- "layers" – warstwy mapy
+- "risk" – analiza ryzyka
+- "files" – dane i pliki
+
+Warstwy mapy (layer):
+- "hospitals" – szpitale
+- "floodZones" – strefy powodziowe
+- "cameras" – kamery
+- "powiatBoundaries" – granice powiatów
+- "gminaBoundaries" – granice gmin
+
+Na podstawie komendy głosowej, wybierz akcję i napisz KRÓTKIE potwierdzenie po polsku (1-2 zdania).
+Jeśli komenda jest pytaniem lub nie pasuje do żadnej akcji, użyj akcji "info" i odpowiedz w confirmation_text."""
+
+VOICE_TOOL = {
+    "type": "function",
+    "function": {
+        "name": "execute_dashboard_action",
+        "description": "Wykonaj akcję w dashboardzie kryzysowym na podstawie komendy głosowej",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "enum": ["switch_tab", "open_panel", "close_panel",
+                             "search_territory", "toggle_layer", "info"],
+                    "description": "Typ akcji do wykonania",
+                },
+                "tab": {
+                    "type": "string",
+                    "enum": ["map", "hospitals"],
+                },
+                "panel": {
+                    "type": "string",
+                    "enum": ["map", "live", "layers", "risk", "files"],
+                },
+                "territory_name": {
+                    "type": "string",
+                    "description": "Nazwa terytorium do wyszukania",
+                },
+                "territory_type": {
+                    "type": "string",
+                    "enum": ["powiat", "gmina"],
+                },
+                "layer": {
+                    "type": "string",
+                    "enum": ["hospitals", "floodZones", "cameras",
+                             "powiatBoundaries", "gminaBoundaries"],
+                },
+                "layer_enabled": {
+                    "type": "boolean",
+                    "description": "Włącz (true) lub wyłącz (false) warstwę",
+                },
+                "confirmation_text": {
+                    "type": "string",
+                    "description": "Krótkie potwierdzenie głosowe po polsku",
+                },
+            },
+            "required": ["action", "confirmation_text"],
+        },
+    },
+}
+
+ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel – multilingual
+
+
+@app.post("/api/voice-control", tags=["Głos"],
+          summary="Sterowanie głosowe dashboardem")
+async def voice_control(file: UploadFile = File(...)):
+    """
+    Odbiera nagranie audio → transkrybuje (Whisper) → wyciąga akcję (GPT-4o)
+    → generuje potwierdzenie głosowe (ElevenLabs) → zwraca JSON z akcją + audio.
+    """
+    audio_bytes = await file.read()
+
+    openai_key = os.getenv("OPENAI_API_KEY")
+    elevenlabs_key = os.getenv("ELEVEN_LABS_API_KEY")
+
+    if not openai_key:
+        return {"error": "Brak klucza OPENAI_API_KEY w zmiennych środowiskowych."}
+
+    ai = openai.AsyncOpenAI(api_key=openai_key)
+
+    # 1. Transcribe with Whisper ──────────────────────────────────────────────
+    audio_file = io.BytesIO(audio_bytes)
+    audio_file.name = file.filename or "audio.webm"
+
+    transcript = await ai.audio.transcriptions.create(
+        model="whisper-1",
+        file=audio_file,
+        language="pl",
+    )
+    user_text = transcript.text
+
+    # 2. Extract action with GPT-4o function calling ──────────────────────────
+    chat = await ai.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": VOICE_SYSTEM_PROMPT},
+            {"role": "user", "content": user_text},
+        ],
+        tools=[VOICE_TOOL],
+        tool_choice={"type": "function",
+                     "function": {"name": "execute_dashboard_action"}},
+    )
+
+    tool_call = chat.choices[0].message.tool_calls[0]
+    action_data = json.loads(tool_call.function.arguments)
+
+    # 3. Generate voice confirmation with ElevenLabs TTS ──────────────────────
+    confirmation = action_data.get("confirmation_text", "Wykonano.")
+    audio_b64 = None
+
+    if elevenlabs_key:
+        try:
+            async with httpx.AsyncClient(timeout=30) as client:
+                tts_r = await client.post(
+                    f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}",
+                    headers={
+                        "xi-api-key": elevenlabs_key,
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "text": confirmation,
+                        "model_id": "eleven_multilingual_v2",
+                        "voice_settings": {
+                            "stability": 0.5,
+                            "similarity_boost": 0.75,
+                        },
+                    },
+                )
+                if tts_r.status_code == 200:
+                    audio_b64 = base64.b64encode(tts_r.content).decode("utf-8")
+        except Exception:
+            pass  # TTS failure is non-critical; frontend still gets action
+
+    return {
+        "transcript": user_text,
+        "action": action_data,
+        "audio": audio_b64,
     }
 
 

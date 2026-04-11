@@ -1,3 +1,22 @@
+// ── Voice control ──
+
+export type VoiceAction = {
+  action:
+    | 'switch_tab'
+    | 'open_panel'
+    | 'close_panel'
+    | 'search_territory'
+    | 'toggle_layer'
+    | 'info';
+  tab?: 'map' | 'hospitals';
+  panel?: PanelId;
+  territory_name?: string;
+  territory_type?: 'powiat' | 'gmina';
+  layer?: keyof LayerToggles;
+  layer_enabled?: boolean;
+  confirmation_text: string;
+};
+
 export type CameraAlert = 'good' | 'meh' | 'bad';
 
 export type CameraFeed = {
