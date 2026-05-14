@@ -1,10 +1,29 @@
+# Python
 .venv/
+venv/
+env/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+.eggs/
+*.egg
+
+# Environment
 .env
 .env.local
 .env*.local
 api/.env
+
+# Database
+*.sqlite3
+*.sqlite
+*.db
 
 # Node / Next.js
 frontend/node_modules/
@@ -12,10 +31,47 @@ frontend/.next/
 frontend/out/
 wizualizacja/node_modules/
 wizualizacja/.next/
+wizualizacja/out/
+wizualizacja/.turbo/
+wizualizacja/.swc/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ML/Data
+.cache/
+*.joblib.gz
+live_feature_cache.json
+live_hospital_feature_cache.json
+
+# Docker
+.dockerenv
+
+# Misc
+.DS_Store
+.env.local
+.env.*.local
+*.pem
+*.key
